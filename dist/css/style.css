@@ -1,0 +1,1455 @@
+:root {
+  --primary-color: #818cf8;       /* Pastel Indigo Kontras */
+  --primary-dark: #6366f1;
+  --pastel-pink: #ffb3ba;        /* Pastel Pink Utama Navbar */
+  --pastel-pink-dark: #831843;   /* Deep Magenta untuk kontras teks di atas pink */
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --bg-light: #f8fafc;
+  --bg-section-alt: #f1f5f9;
+  --bg-dark: #0f172a;
+  --white: #ffffff;
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
+  --shadow-md: 0 10px 25px -5px rgba(99, 102, 241, 0.12);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Offset Scroll agar Judul Tidak Tertutup Navbar saat Diklik */
+section, header, footer {
+  scroll-margin-top: 90px;
+}
+
+body {
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+  line-height: 1.6;
+}
+
+.container {
+  width: 88%;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+@media (max-width: 992px) {
+  .container {
+    width: 92%;
+  }
+}
+
+/* ================= NAVBAR (AMUSEMENT PARK THEME) ================= */
+.navbar {
+  height: 78px;
+  background-color: #ffffff;
+  /* Aksen garis tenda karnaval pastel di batas bawah navbar */
+  border-bottom: 4px solid transparent;
+  border-image: repeating-linear-gradient(
+    -45deg,
+    #fecdd3 0,
+    #fecdd3 12px,
+    #fed7aa 12px,
+    #fed7aa 24px,
+    #ddd6fe 24px,
+    #ddd6fe 36px,
+    #fef08a 36px,
+    #fef08a 48px
+  ) 4;
+  box-shadow: 0 4px 20px rgba(30, 27, 75, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.navbar-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-box .logo a {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-box .logo img {
+  height: 130px; /* Ukuran proporsional agar navbar tidak terlalu sesak */
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.navbar-box .logo img:hover {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+.navbar-box .menu {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar-box .menu li {
+  list-style-type: none;
+}
+
+.navbar-box .menu li a {
+  text-decoration: none;
+  color: #334155;
+  font-weight: 700;
+  font-size: 14.5px;
+  position: relative;
+  padding: 8px 14px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.navbar-box .menu li a:hover {
+  color: #db2777;
+  background-color: #fdf2f8;
+}
+
+/* Penanda Aktif ala Tiket Masuk Mini */
+.navbar-box .menu li a.active {
+  color: #9d174d;
+  background-color: #fce7f3;
+  border: 1.5px dashed #f472b6;
+}
+
+.navbar-box .menu li a::after {
+  display: none; /* Hilangkan garis bawah AI */
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+    padding: 14px 0;
+  }
+  .navbar-box {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .navbar-box .logo img {
+    height: 48px;
+  }
+  .navbar-box .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .navbar-box .menu li a {
+    padding: 6px 10px;
+    font-size: 13.5px;
+  }
+}
+
+/* ================= HERO SECTION (PARK MAIN GATE) ================= */
+.hero-pastel {
+  padding: 25px 0 50px;
+}
+
+.hero-card-16-9 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 520px;
+  border-radius: 26px;
+  overflow: hidden;
+  /* Bingkai foto pop-up solid ala buku suvenir */
+  border: 5px solid #ffffff;
+  box-shadow: 0 14px 0 #fed7aa, 0 25px 35px rgba(30, 27, 75, 0.12);
+}
+
+.hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+/* Overlay Hangat (Matahari Terbenam / Sunset Pastel) */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 27, 75, 0.72) 0%,   /* Ungu navy pekat */
+    rgba(76, 29, 149, 0.58) 50%,  /* Lavender violet sedang */
+    rgba(15, 23, 42, 0.75) 100%   /* Deep charcoal lembut */
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.hero-glass-content {
+  background: transparent;
+  max-width: 880px;
+  text-align: center;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Animasi floating halus */
+  animation: heroContentFloat 4.5s ease-in-out infinite;
+}
+
+/* Badge Tiket Wahana (Souvenir Pass) */
+.pastel-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  background: #fef3c7; /* Vanila lembut */
+  border: 2px dashed #f59e0b; /* Garis tiket sobek */
+  color: #92400e;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+  transform: rotate(-1deg);
+}
+
+.pastel-badge i {
+  color: #d97706;
+}
+
+.hero-glass-content h1 {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: #ffffff;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.7);
+}
+
+.highlight-text {
+  color: #fef08a; /* Kuning pastel cerah agar kontras tajam */
+  font-weight: 800;
+  text-shadow: 0 3px 10px rgba(202, 138, 4, 0.5);
+  -webkit-text-fill-color: initial;
+}
+
+.hero-glass-content p {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: #f8fafc;
+  margin-bottom: 28px;
+  max-width: 680px;
+  font-weight: 500;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-btn-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Tombol Taktil 3D (Carnival Ticket Button) */
+.btn-pastel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: 14px;
+  font-size: 14.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.2s ease;
+}
+
+/* Tombol 1: Warm Butter Yellow */
+.btn-pastel.primary {
+  background-color: #fef08a;
+  color: #713f12;
+  box-shadow: 0 5px 0 #ca8a04;
+}
+
+.btn-pastel.primary:hover {
+  background-color: #fde047;
+}
+
+.btn-pastel.primary:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #ca8a04;
+}
+
+/* Tombol 2: Sweet Strawberry Pastel */
+.btn-pastel.secondary {
+  background-color: #fce7f3;
+  color: #831843;
+  box-shadow: 0 5px 0 #db2777;
+}
+
+.btn-pastel.secondary:hover {
+  background-color: #fbcfe8;
+}
+
+.btn-pastel.secondary:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #db2777;
+}
+
+@media (max-width: 768px) {
+  .hero-glass-content h1 {
+    font-size: 34px;
+  }
+  .hero-glass-content p {
+    font-size: 14px;
+  }
+  .hero-card-16-9 {
+    aspect-ratio: auto;
+    min-height: 480px;
+    box-shadow: 0 8px 0 #fed7aa;
+  }
+}
+
+@keyframes heroContentFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-card-16-9 {
+    aspect-ratio: auto;
+    min-height: 480px;
+  }
+  .hero-glass-content h1 {
+    font-size: 42px;
+  }
+  .hero-glass-content p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-card-16-9 {
+    min-height: 450px;
+  }
+  .hero-overlay {
+    padding: 30px 16px;
+  }
+  .pastel-badge {
+    font-size: 13px;
+    padding: 6px 16px;
+  }
+  .hero-glass-content h1 {
+    font-size: 30px;
+  }
+  .hero-glass-content p {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .hero-btn-group {
+    width: 100%;
+    gap: 12px;
+  }
+  .btn-pastel {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+  }
+}
+
+/* ================= TENTANG SECTION (ABOUT THE RIDE) ================= */
+.tentang {
+  padding: 80px 0;
+  background-color: #faf7f5;
+}
+
+.tentang-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: center;
+}
+
+/* Bingkai Foto Pintu Kelas ala Kartu Suvenir */
+.tentang-box .box:first-child {
+  position: relative;
+}
+
+.tentang-box img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 5px solid #ffffff;
+  box-shadow: 0 12px 0 #fed7aa, 0 20px 30px rgba(30, 27, 75, 0.08);
+}
+
+.tentang-box h1 {
+  font-size: 38px;
+  color: #831843;
+  margin-bottom: 18px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.tentang-box p {
+  line-height: 1.8;
+  color: #475569;
+  font-size: 15.5px;
+}
+
+/* Tombol Taktil 3D "Lihat Anggota Kelas" */
+.tentang-action {
+  margin-top: 28px;
+}
+
+.btn-members {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background-color: #f43f5e;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 14px;
+  box-shadow: 0 5px 0 #be123c;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.2s ease;
+}
+
+.btn-members i:first-child {
+  font-size: 16px;
+  color: #ffe4e6;
+}
+
+.btn-members i:last-child {
+  font-size: 13px;
+  transition: transform 0.2s ease;
+}
+
+.btn-members:hover {
+  background-color: #e11d48;
+}
+
+.btn-members:hover i:last-child {
+  transform: translateX(4px);
+}
+
+.btn-members:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #be123c;
+}
+
+/* ================= INFO COUNTER / CARNIVAL BOOTHS ================= */
+.tentang .info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  padding-top: 55px;
+  text-align: center;
+}
+
+.tentang .info .box {
+  background: #ffffff;
+  border: 2px solid #fed7aa;
+  padding: 26px 20px;
+  border-radius: 20px;
+  box-shadow: 0 6px 0 #fde68a, 0 12px 20px rgba(30, 27, 75, 0.04); /* Bayangan pop-up bertumpuk */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tentang .info .box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 0 #fde68a, 0 16px 25px rgba(30, 27, 75, 0.08);
+}
+
+.tentang .info h2 {
+  font-size: 15px;
+  color: #64748b;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.tentang .info h2 span {
+  color: #db2777;
+  font-size: 42px;
+  font-weight: 800;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.tentang .info h2 span.nama-guru {
+  font-size: 19px;
+  color: #1e1b4b;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+/* Responsif Layar Handphone */
+@media (max-width: 768px) {
+  .tentang-box {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .tentang-box img {
+    height: 300px;
+  }
+  .tentang .info {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tentang-action {
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+/* ================= SECTION TITLE UMUM ================= */
+.section-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-title h2.animated-title {
+  display: inline-block;
+  background: linear-gradient(120deg, #1e293b 0%, #6366f1 50%, #db2777 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleGlowPulse 4s ease-in-out infinite;
+}
+
+@keyframes titleGlowPulse {
+  0%, 70%, 100% {
+    transform: translateY(0) scale(1);
+    background-position: 0% center;
+    filter: drop-shadow(0 0 0 rgba(99, 102, 241, 0));
+  }
+  80% {
+    transform: translateY(-4px) scale(1.03);
+    background-position: 100% center;
+    filter: drop-shadow(0 8px 16px rgba(219, 39, 119, 0.25));
+  }
+  90% {
+    transform: translateY(0) scale(1);
+    background-position: 0% center;
+    filter: drop-shadow(0 0 0 rgba(99, 102, 241, 0));
+  }
+}
+
+.section-title h2 {
+  font-size: 34px;
+  color: var(--text-dark);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.section-title p {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+/* ================= MEMORIES (MEMORIE LANE) ================= */
+.akademik {
+  padding: 85px 0;
+  background-color: #faf7f5;
+}
+
+.akademik-slider-wrapper,
+.achievement-slider-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.akademik-box,
+.achievement-box {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 18px 8px 30px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.akademik-box::-webkit-scrollbar,
+.achievement-box::-webkit-scrollbar {
+  display: none;
+}
+
+/* Kartu Polaroid Suvenir Karnaval */
+.akademik-box .box,
+.achievement-box .box {
+  flex: 0 0 calc((100% - 56px) / 3);
+  min-width: 300px;
+  scroll-snap-align: start;
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 2px solid #fed7aa;
+  box-shadow: 0 8px 0 #fde68a, 0 16px 25px rgba(30, 27, 75, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.akademik-box .box:hover,
+.achievement-box .box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 0 #fde68a, 0 22px 30px rgba(30, 27, 75, 0.09);
+}
+
+/* Bingkai Foto */
+.akademik-box img,
+.achievement-box img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 2px dashed #fed7aa;
+}
+
+.akademik-box .desc,
+.achievement-box .desc {
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.akademik-box .desc h2,
+.achievement-box .desc h2 {
+  font-size: 17.5px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: #1e1b4b;
+  line-height: 1.35;
+}
+
+/* Format Tanggal Menjadi Badge Stempel Kunjungan */
+.akademik-box .desc p:first-of-type,
+.achievement-box .desc p:first-of-type {
+  display: inline-block;
+  align-self: flex-start;
+  background: #fce7f3;
+  color: #9d174d;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  border: 1px dashed #f472b6;
+}
+
+.akademik-box .desc br + br,
+.akademik-box .desc br {
+  display: none;
+}
+
+.akademik-box .desc {
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ================= SLIDER BUTTONS (CARNIVAL PIN BUTTON) ================= */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #f43f5e;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 0 #be123c;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.2s ease, opacity 0.3s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+.slider-arrow.prev {
+  left: -20px;
+}
+
+.slider-arrow.next {
+  right: -20px;
+}
+
+.slider-arrow:hover {
+  background-color: #e11d48;
+}
+
+.slider-arrow:active {
+  transform: translateY(calc(-50% + 3px));
+  box-shadow: 0 1px 0 #be123c;
+}
+
+/* Class untuk menyembunyikan panah jika sudah di ujung */
+.slider-arrow.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Responsif Mobile */
+@media (max-width: 768px) {
+  .akademik-box .box,
+  .achievement-box .box {
+    min-width: 270px;
+  }
+  .slider-arrow {
+    display: none; 
+  }
+}
+
+/* ================= ACHIEVEMENT CUSTOM SINGLE CARD ================= */
+.achievement {
+  padding: 85px 0;
+  background-color: #ffffff;
+}
+
+/* Jika itemnya masih 1 (belum butuh slider), posisikan di tengah */
+.achievement-slider-wrapper.single-event {
+  justify-content: center;
+}
+
+.achievement-slider-wrapper.single-event .achievement-box {
+  justify-content: center;
+  overflow: visible;
+  padding: 10px 0 25px;
+}
+
+.achievement-slider-wrapper.single-event .slider-arrow {
+  display: none !important;
+}
+
+/* Kartu Khusus Penghargaan (Prize Card) */
+.prize-card {
+  max-width: 420px;
+  position: relative;
+}
+
+.card-badge-top {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background-color: #f43f5e;
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(244, 63, 94, 0.35);
+  z-index: 2;
+}
+
+/* Daftar 3 Lencana Juara */
+.trophy-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fef9c3;
+  color: #854d0e;
+  border: 1.5px solid #fde047;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 0 #eab308;
+}
+
+.tag-badge i {
+  color: #ca8a04;
+}
+
+/* ================= FEEDBACK & SUGGESTION BOX ================= */
+.feedback-section {
+  padding: 85px 0;
+  background-color: #faf7f5;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Kotak Form Utama (Ticket / Invitation Card Style) */
+.feedback-wrapper {
+  max-width: 580px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 40px 32px;
+  border-radius: 24px;
+  border: 2px solid #fed7aa;
+  box-shadow: 0 12px 0 #fde68a, 0 20px 30px rgba(30, 27, 75, 0.06);
+  position: relative;
+}
+
+/* Dekorasi pita/stempel kecil di pojok kartu */
+.feedback-wrapper::before {
+  content: "TICKET NO. 11";
+  position: absolute;
+  top: -12px;
+  right: 28px;
+  background: #f43f5e;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(244, 63, 94, 0.25);
+}
+
+/* Input Fields Wrapper */
+.input-group {
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+.input-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.input-group label i {
+  color: #f43f5e;
+  font-size: 0.95rem;
+}
+
+/* Input, Select, & Textarea Styling */
+.input-group input,
+.input-group select,
+.input-group textarea {
+  width: 100%;
+  padding: 13px 16px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.92rem;
+  color: #1e293b;
+  background-color: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+  color: #94a3b8;
+  font-size: 0.88rem;
+}
+
+/* State Focus Input */
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  background-color: #ffffff;
+  border-color: #fb7185;
+  box-shadow: 0 0 0 4px rgba(251, 113, 133, 0.15);
+}
+
+.input-group textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+/* Tombol Kirim: Tactile / 3D Pop Button */
+.btn-submit {
+  width: 100%;
+  padding: 15px 20px;
+  margin-top: 10px;
+  background-color: #db2777;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #9d174d;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-submit:hover {
+  background-color: #e11d48;
+}
+
+/* Efek Tombol saat Ditekan Nyata */
+.btn-submit:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #9d174d;
+}
+
+/* State Loading saat proses kirim data */
+.btn-submit:disabled {
+  background-color: #cbd5e1;
+  box-shadow: 0 4px 0 #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Status Alert Berhasil / Gagal */
+.form-status {
+  display: none;
+  margin-top: 18px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: center;
+  animation: statusFade 0.3s ease-in-out forwards;
+}
+
+.form-status.success {
+  display: block;
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1.5px solid #a7f3d0;
+}
+
+.form-status.error {
+  display: block;
+  background-color: #fff1f2;
+  color: #9f1239;
+  border: 1.5px solid #fecdd3;
+}
+
+@keyframes statusFade {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustment untuk layar HP */
+@media (max-width: 600px) {
+  .feedback-wrapper {
+    padding: 30px 20px;
+    border-radius: 18px;
+    box-shadow: 0 8px 0 #fde68a, 0 14px 20px rgba(30, 27, 75, 0.05);
+  }
+
+  .feedback-wrapper::before {
+    right: 18px;
+    font-size: 0.65rem;
+  }
+}
+
+/* ================= FOOTER ================= */
+footer {
+  padding: 70px 0 30px;
+  background-color: var(--bg-dark);
+  color: #cbd5e1;
+}
+
+.footer-box {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 40px;
+  margin-bottom: 45px;
+}
+
+.footer-box h2 {
+  color: var(--white);
+  font-size: 19px;
+  margin-bottom: 18px;
+}
+
+.footer-box p {
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.footer-box .social {
+  margin-top: 18px;
+  display: flex;
+  gap: 14px;
+}
+
+.footer-box .social a {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 18px;
+  text-decoration: none;
+  color: var(--white);
+  transition: var(--transition);
+}
+
+.footer-box .social a:hover {
+  background: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+.footer-box .box:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-box .box:nth-child(2) a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #94a3b8;
+  transition: var(--transition);
+}
+
+.footer-box .box:nth-child(2) a:hover {
+  color: #ffb3ba;
+  padding-left: 6px;
+}
+
+.footer-box .box:nth-child(3) p {
+  margin-bottom: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.footer-box .box:nth-child(3) i {
+  color: #ffb3ba;
+  font-size: 16px;
+}
+
+.copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+  text-align: center;
+}
+
+.copyright p {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.copyright p span {
+  font-weight: 600;
+  color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .footer-box {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* ================= SCROLL UP BUTTON ================= */
+.scroll-up {
+  width: 46px;
+  height: 46px;
+  background: var(--primary-dark);
+  color: var(--white);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: var(--transition);
+  z-index: 999;
+  text-decoration: none;
+}
+
+.scroll-up:hover {
+  transform: translateY(-4px);
+  background: var(--primary-color);
+}
+
+.scroll-up.scroll-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ================= HALAMAN ANGGOTA (STUDENTS.HTML) ================= */
+
+/* Background Halaman: Hangat & Senada dengan Index */
+.bg-members-page {
+  background-color: #faf7f5;
+  background-image: radial-gradient(#fed7aa 0.85px, transparent 0.85px);
+  background-size: 24px 24px; /* Pola bintik konfeti karnaval sangat halus */
+  min-height: 100vh;
+}
+
+/* Header Halaman Direktori */
+.members-header {
+  padding: 60px 0 35px;
+  text-align: center;
+  position: relative;
+}
+
+.members-header .header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  background: #fef3c7;
+  border: 1.5px dashed #f59e0b;
+  color: #92400e;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.members-header h1 {
+  font-size: 40px;
+  color: #1e1b4b;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.members-header p {
+  color: #64748b;
+  font-size: 15.5px;
+  max-width: 620px;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
+.members-container {
+  padding: 30px 0 90px;
+}
+
+.structure-group {
+  margin-bottom: 70px;
+}
+
+.group-title {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.group-title span {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 1.8px;
+  color: #db2777;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.group-title h2 {
+  font-size: 28px;
+  color: #1e1b4b;
+  font-weight: 800;
+}
+
+/* ================= GRIDS LAYOUT ================= */
+.cards-grid {
+  display: grid;
+  gap: 26px;
+}
+
+.cards-grid.single {
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.cards-grid.cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.cards-grid.cols-4 {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.cards-grid.cols-5 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* ================= ID PASS CARD DESIGN (TACTILE) ================= */
+.id-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 28px 18px 22px;
+  border: 2px solid #fed7aa; /* Border pastel hangat */
+  box-shadow: 0 8px 0 #fde68a, 0 16px 25px rgba(30, 27, 75, 0.05); /* Bayangan bertumpuk fisik */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.id-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 0 #fde68a, 0 22px 30px rgba(30, 27, 75, 0.09);
+}
+
+/* Badge Jabatan Tiket Mini di Atas Kartu */
+.card-tag {
+  position: absolute;
+  top: -13px;
+  color: #ffffff;
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: 8px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Warna-Warna Badge Jabatan */
+.teacher-card .card-tag {
+  background: #f43f5e; /* Rose red */
+  border: 1.5px dashed #ffe4e6;
+}
+
+.leader-card .card-tag {
+  background: #8b5cf6; /* Lavender violet */
+  border: 1.5px dashed #ede9fe;
+}
+
+.member-card .card-tag {
+  background: #64748b;
+  border: 1.5px dashed #f1f5f9;
+}
+
+/* Avatar Bingkai Foto */
+.avatar-wrap {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  padding: 4px;
+  background: #ffffff;
+  border: 3px solid #fed7aa; /* Lingkaran solid lembut */
+  margin-bottom: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* Khusus Wali Kelas: Tanda VIP Emas Pastel */
+.teacher-card {
+  border-color: #fde047;
+  box-shadow: 0 10px 0 #fef08a, 0 20px 30px rgba(30, 27, 75, 0.08);
+}
+
+.teacher-card .avatar-wrap {
+  width: 124px;
+  height: 124px;
+  border: 3.5px solid #f59e0b; /* Aksen emas */
+  background: #fef3c7;
+}
+
+.avatar-wrap img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #ffffff;
+}
+
+.card-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Teks Detail Kartu */
+.card-details h3 {
+  font-size: 15px;
+  line-height: 1.35;
+  color: #1e1b4b;
+  font-weight: 800;
+  margin-bottom: 6px;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  word-break: break-word;
+}
+
+/* Stiker Sudut Kartu */
+.card-sticker {
+  position: absolute;
+  width: 44px;
+  height: auto;
+  pointer-events: none;
+  z-index: 5;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.12)) drop-shadow(0 0 2px #ffffff);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ================= WARNA KHUSUS JABATAN (TACTILE TAGS) ================= */
+
+/* Leader (Ketua & Wakil): Violet Pastel */
+.leader-card .card-tag {
+  background: #7c3aed;
+  border: 1.5px dashed #ede9fe;
+}
+
+/* Secretary: Mint Emerald Pastel */
+.secretary-card .card-tag {
+  background: #059669;
+  border: 1.5px dashed #d1fae5;
+}
+
+.secretary-card .avatar-wrap {
+  border-color: #a7f3d0;
+}
+
+/* Treasurer: Warm Honey Gold Pastel */
+.treasurer-card .card-tag {
+  background: #d97706;
+  border: 1.5px dashed #fef3c7;
+}
+
+.treasurer-card .avatar-wrap {
+  border-color: #fde68a;
+}
+
+/* Avatar Inisial Sementara (Jika belum ada foto) */
+.avatar-initial {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fed7aa 0%, #fecdd3 100%);
+  color: #831843;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* ================= WARNA KHUSUS SEKSI BIDANG (PARK CREW) ================= */
+
+/* Keamanan: Sky Blue Pastel */
+.security-card .card-tag {
+  background: #0284c7;
+  border: 1.5px dashed #bae6fd;
+}
+.security-card .avatar-wrap {
+  border-color: #bae6fd;
+}
+
+/* Kebersihan: Emerald Mint Pastel */
+.clean-card .card-tag {
+  background: #059669;
+  border: 1.5px dashed #a7f3d0;
+}
+.clean-card .avatar-wrap {
+  border-color: #a7f3d0;
+}
+
+/* Keagamaan: Soft Teal / Turquoise */
+.spiritual-card .card-tag {
+  background: #0d9488;
+  border: 1.5px dashed #99f6e4;
+}
+.spiritual-card .avatar-wrap {
+  border-color: #99f6e4;
+}
+
+/* Pubdekdok: Violet Lilac Pastel */
+.media-card .card-tag {
+  background: #7c3aed;
+  border: 1.5px dashed #ddd6fe;
+}
+.media-card .avatar-wrap {
+  border-color: #ddd6fe;
+}
+
+/* Lomba: Golden Honey Pastel */
+.contest-card .card-tag {
+  background: #d97706;
+  border: 1.5px dashed #fde68a;
+}
+.contest-card .avatar-wrap {
+  border-color: #fde68a;
+}
+
+.sticker-right {
+  top: 12px;
+  right: 14px;
+  transform: rotate(14deg);
+}
+
+.id-card:hover .sticker-right {
+  transform: rotate(24deg) scale(1.15);
+}
+
+/* Responsif Mobile */
+@media (max-width: 768px) {
+  .cards-grid.cols-2 {
+    grid-template-columns: 1fr;
+  }
+  .members-header h1 {
+    font-size: 30px;
+  }
+}
