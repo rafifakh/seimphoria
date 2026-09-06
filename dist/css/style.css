@@ -155,6 +155,42 @@ body {
   }
 }
 
+/* ========================================================
+   NAVBAR KHUSUS TABLET (Layar 769px - 1024px)
+   ======================================================== */
+   @media (min-width: 769px) and (max-width: 1024px) {
+    .navbar {
+      height: 70px;
+    }
+  
+    .navbar .container {
+      padding-left: 16px;
+      padding-right: 16px;
+      max-width: 100%;
+    }
+  
+    .logo img,
+    .navbar-box .logo img {
+      height: 40px !important;
+      width: auto !important;
+    }
+  
+    .menu {
+      display: flex !important;
+      align-items: center;
+      gap: 12px !important;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  
+    .menu li a {
+      font-size: 13px !important;
+      white-space: nowrap !important;
+      padding: 6px 4px !important;
+    }
+  }
+
 /* ================= HERO SECTION (PARK MAIN GATE) ================= */
 .hero-pastel {
   padding: 25px 0 50px;
@@ -1127,112 +1163,43 @@ footer {
 /* ================= HALAMAN ANGGOTA (STUDENTS.HTML) ================= */
 
 /* Background Halaman: Hangat & Senada dengan Index */
-.bg-members-page {
-  background-color: #faf7f5;
-  background-image: radial-gradient(#fed7aa 0.85px, transparent 0.85px);
-  background-size: 24px 24px; /* Pola bintik konfeti karnaval sangat halus */
-  min-height: 100vh;
-}
-
-/* Header Halaman Direktori */
-.members-header {
-  padding: 60px 0 35px;
-  text-align: center;
-  position: relative;
-}
-
-.members-header .header-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 18px;
-  background: #fef3c7;
-  border: 1.5px dashed #f59e0b;
-  color: #92400e;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  margin-bottom: 14px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.members-header h1 {
-  font-size: 40px;
-  color: #1e1b4b;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-
-.members-header p {
-  color: #64748b;
-  font-size: 15.5px;
-  max-width: 620px;
-  margin: 0 auto;
-  font-weight: 500;
-}
-
-.members-container {
-  padding: 30px 0 90px;
-}
-
-.structure-group {
-  margin-bottom: 70px;
-}
-
-.group-title {
-  text-align: center;
-  margin-bottom: 36px;
-}
-
-.group-title span {
-  display: inline-block;
-  font-size: 12px;
-  letter-spacing: 1.8px;
-  color: #db2777;
-  font-weight: 800;
-  margin-bottom: 4px;
-}
-
-.group-title h2 {
-  font-size: 28px;
-  color: #1e1b4b;
-  font-weight: 800;
-}
-
 /* ================= GRIDS LAYOUT ================= */
 .cards-grid {
   display: grid;
-  gap: 26px;
+  gap: 24px;
 }
 
+/* 1 Kartu (Wali Kelas) */
 .cards-grid.single {
-  max-width: 350px;
+  max-width: 340px;
   margin: 0 auto;
 }
 
+/* 2 Kartu (Ketua & Wakil) */
 .cards-grid.cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   max-width: 680px;
   margin: 0 auto;
 }
 
+/* 4 Kolom (Management: Sekretaris & Bendahara) */
 .cards-grid.cols-4 {
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
 }
 
+/* 5 Kolom (Seksi Bidang di Desktop) */
 .cards-grid.cols-5 {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
 }
 
 /* ================= ID PASS CARD DESIGN (TACTILE) ================= */
 .id-card {
   position: relative;
   background: #ffffff;
-  border-radius: 22px;
-  padding: 28px 18px 22px;
-  border: 2px solid #fed7aa; /* Border pastel hangat */
-  box-shadow: 0 8px 0 #fde68a, 0 16px 25px rgba(30, 27, 75, 0.05); /* Bayangan bertumpuk fisik */
+  border-radius: 20px;
+  padding: 26px 14px 20px;
+  border: 2px solid #fed7aa;
+  box-shadow: 0 8px 0 #fde68a, 0 16px 25px rgba(30, 27, 75, 0.05);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -1248,58 +1215,44 @@ footer {
 /* Badge Jabatan Tiket Mini di Atas Kartu */
 .card-tag {
   position: absolute;
-  top: -13px;
+  top: -12px;
   color: #ffffff;
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 800;
-  padding: 4px 14px;
+  padding: 3.5px 12px;
   border-radius: 8px;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
-}
-
-/* Warna-Warna Badge Jabatan */
-.teacher-card .card-tag {
-  background: #f43f5e; /* Rose red */
-  border: 1.5px dashed #ffe4e6;
-}
-
-.leader-card .card-tag {
-  background: #8b5cf6; /* Lavender violet */
-  border: 1.5px dashed #ede9fe;
-}
-
-.member-card .card-tag {
-  background: #64748b;
-  border: 1.5px dashed #f1f5f9;
+  justify-content: center;
+  gap: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
 }
 
 /* Avatar Bingkai Foto */
 .avatar-wrap {
-  width: 104px;
-  height: 104px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
-  padding: 4px;
+  padding: 3px;
   background: #ffffff;
-  border: 3px solid #fed7aa; /* Lingkaran solid lembut */
-  margin-bottom: 16px;
+  border: 3px solid #fed7aa;
+  margin-bottom: 14px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
 }
 
-/* Khusus Wali Kelas: Tanda VIP Emas Pastel */
+/* Khusus Wali Kelas: Tanda VIP */
 .teacher-card {
   border-color: #fde047;
   box-shadow: 0 10px 0 #fef08a, 0 20px 30px rgba(30, 27, 75, 0.08);
 }
 
 .teacher-card .avatar-wrap {
-  width: 124px;
-  height: 124px;
-  border: 3.5px solid #f59e0b; /* Aksen emas */
+  width: 120px;
+  height: 120px;
+  border: 3.5px solid #f59e0b;
   background: #fef3c7;
 }
 
@@ -1320,12 +1273,12 @@ footer {
 
 /* Teks Detail Kartu */
 .card-details h3 {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.35;
   color: #1e1b4b;
   font-weight: 800;
-  margin-bottom: 6px;
-  min-height: 42px;
+  margin-bottom: 4px;
+  min-height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1336,7 +1289,7 @@ footer {
 /* Stiker Sudut Kartu */
 .card-sticker {
   position: absolute;
-  width: 44px;
+  width: 38px;
   height: auto;
   pointer-events: none;
   z-index: 5;
@@ -1344,35 +1297,65 @@ footer {
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* ================= WARNA KHUSUS JABATAN (TACTILE TAGS) ================= */
+.sticker-right {
+  top: 10px;
+  right: 10px;
+  transform: rotate(14deg);
+}
 
-/* Leader (Ketua & Wakil): Violet Pastel */
+.id-card:hover .sticker-right {
+  transform: rotate(24deg) scale(1.15);
+}
+
+/* ================= WARNA KHUSUS JABATAN ================= */
+.teacher-card .card-tag {
+  background: #f43f5e;
+  border: 1.5px dashed #ffe4e6;
+}
+
 .leader-card .card-tag {
   background: #7c3aed;
   border: 1.5px dashed #ede9fe;
 }
 
-/* Secretary: Mint Emerald Pastel */
 .secretary-card .card-tag {
   background: #059669;
   border: 1.5px dashed #d1fae5;
 }
-
 .secretary-card .avatar-wrap {
   border-color: #a7f3d0;
 }
 
-/* Treasurer: Warm Honey Gold Pastel */
 .treasurer-card .card-tag {
   background: #d97706;
   border: 1.5px dashed #fef3c7;
 }
-
 .treasurer-card .avatar-wrap {
   border-color: #fde68a;
 }
 
-/* Avatar Inisial Sementara (Jika belum ada foto) */
+.member-card .card-tag {
+  background: #64748b;
+  border: 1.5px dashed #f1f5f9;
+}
+
+/* Seksi Bidang */
+.security-card .card-tag { background: #0284c7; border: 1.5px dashed #bae6fd; }
+.security-card .avatar-wrap { border-color: #bae6fd; }
+
+.clean-card .card-tag { background: #059669; border: 1.5px dashed #a7f3d0; }
+.clean-card .avatar-wrap { border-color: #a7f3d0; }
+
+.spiritual-card .card-tag { background: #0d9488; border: 1.5px dashed #99f6e4; }
+.spiritual-card .avatar-wrap { border-color: #99f6e4; }
+
+.media-card .card-tag { background: #7c3aed; border: 1.5px dashed #ddd6fe; }
+.media-card .avatar-wrap { border-color: #ddd6fe; }
+
+.contest-card .card-tag { background: #d97706; border: 1.5px dashed #fde68a; }
+.contest-card .avatar-wrap { border-color: #fde68a; }
+
+/* Avatar Inisial */
 .avatar-initial {
   width: 100%;
   height: 100%;
@@ -1382,74 +1365,229 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
-  letter-spacing: 1px;
 }
 
-/* ================= WARNA KHUSUS SEKSI BIDANG (PARK CREW) ================= */
-
-/* Keamanan: Sky Blue Pastel */
-.security-card .card-tag {
-  background: #0284c7;
-  border: 1.5px dashed #bae6fd;
-}
-.security-card .avatar-wrap {
-  border-color: #bae6fd;
-}
-
-/* Kebersihan: Emerald Mint Pastel */
-.clean-card .card-tag {
-  background: #059669;
-  border: 1.5px dashed #a7f3d0;
-}
-.clean-card .avatar-wrap {
-  border-color: #a7f3d0;
+/* ================= CONTAINER & PEMBATAS TEPI ================= */
+.members-container,
+.members-header {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
 }
 
-/* Keagamaan: Soft Teal / Turquoise */
-.spiritual-card .card-tag {
-  background: #0d9488;
-  border: 1.5px dashed #99f6e4;
-}
-.spiritual-card .avatar-wrap {
-  border-color: #99f6e4;
+/* ================= TEKS HEADER (JUDUL ATAS) ================= */
+.members-header {
+  text-align: center !important; /* Paksa seluruh judul atas berada di tengah */
+  padding-bottom: 30px;
 }
 
-/* Pubdekdok: Violet Lilac Pastel */
-.media-card .card-tag {
-  background: #7c3aed;
-  border: 1.5px dashed #ddd6fe;
-}
-.media-card .avatar-wrap {
-  border-color: #ddd6fe;
-}
-
-/* Lomba: Golden Honey Pastel */
-.contest-card .card-tag {
-  background: #d97706;
-  border: 1.5px dashed #fde68a;
-}
-.contest-card .avatar-wrap {
-  border-color: #fde68a;
+.members-header h1 {
+  font-size: 38px;
+  color: #1e1b4b;
+  font-weight: 800;
+  margin-bottom: 8px;
+  text-align: center;
 }
 
-.sticker-right {
-  top: 12px;
-  right: 14px;
-  transform: rotate(14deg);
+.members-header p {
+  text-align: center;
+  margin: 0 auto;
 }
 
-.id-card:hover .sticker-right {
-  transform: rotate(24deg) scale(1.15);
+/* ================= JUDUL TIAP TINGKATAN (WALI KELAS, KETUA, DLL) ================= */
+.structure-group {
+  margin-bottom: 60px;
+  width: 100%;
 }
 
-/* Responsif Mobile */
-@media (max-width: 768px) {
-  .cards-grid.cols-2 {
-    grid-template-columns: 1fr;
+/* Mengatur label badge dan judul seksi agar pas di tengah */
+.group-title,
+.structure-group > span,
+.structure-group > h2 {
+  text-align: center !important;
+  display: block;
+}
+
+.group-title h2,
+.structure-group h2 {
+  font-size: 26px;
+  color: #1e1b4b;
+  font-weight: 800;
+  margin-top: 4px;
+  margin-bottom: 24px;
+  text-align: center !important;
+}
+
+/* ========================================================
+   RESPONSIF TABLET (Layar 769px – 1024px)
+   ======================================================== */
+@media (max-width: 1024px) {
+  .cards-grid.cols-4,
+  .cards-grid.cols-5 {
+    grid-template-columns: repeat(3, 1fr); /* Tablet jadi 3 kolom seimbang */
   }
+}
+
+/* ========================================================
+   RESPONSIF HP / MOBILE (Layar <= 768px)
+   ======================================================== */
+@media (max-width: 768px) {
+  .members-header {
+    padding: 35px 0 20px;
+  }
+
   .members-header h1 {
-    font-size: 30px;
+    font-size: 28px;
+  }
+
+  .structure-group {
+    margin-bottom: 45px;
+  }
+
+  .group-title h2 {
+    font-size: 22px;
+  }
+
+  /* Jarak antar kartu di HP dirapatkan agar muat */
+  .cards-grid {
+    gap: 14px;
+    padding: 0 4px;
+  }
+
+  /* Wali kelas tetap 1 kartu di tengah */
+  .cards-grid.single {
+    max-width: 270px;
+  }
+
+  /* SEMUA KARTU LAIN OTOMATIS JADI 2 KOLOM PER BARIS DI HP */
+  .cards-grid.cols-2,
+  .cards-grid.cols-4,
+  .cards-grid.cols-5 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Penyesuaian ukuran kartu di HP agar tidak kekecilan/kebesaran */
+  .id-card {
+    padding: 22px 8px 14px;
+    border-radius: 16px;
+    box-shadow: 0 5px 0 #fde68a, 0 10px 18px rgba(30, 27, 75, 0.05);
+  }
+
+  .avatar-wrap {
+    width: 76px;
+    height: 76px;
+    margin-bottom: 10px;
+  }
+
+  .teacher-card .avatar-wrap {
+    width: 100px;
+    height: 100px;
+  }
+
+  .card-tag {
+    font-size: 8.5px;
+    padding: 2.5px 8px;
+    top: -10px;
+  }
+
+  .card-details h3 {
+    font-size: 12.5px;
+    min-height: 32px;
+    line-height: 1.25;
+  }
+
+  .card-sticker {
+    width: 28px;
+  }
+}
+
+/* ========================================================
+   RESPONSIVE UNTUK TABLET
+   ======================================================== */
+   @media (min-width: 769px) and (max-width: 1024px) {
+  
+    /* Navbar di tablet */
+    .navbar-box {
+      padding: 0 20px;
+    }
+  
+    /* Hero Section di tablet */
+    .hero-glass-content h1 {
+      font-size: 2.2rem;
+    }
+  
+    /* Tentang Section di tablet */
+    .tentang-box {
+      gap: 30px;
+    }
+  
+    /* Memories Section di tablet */
+    .akademik-box {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    /* Feedback Form di tablet */
+    .feedback-wrapper {
+      max-width: 80%;
+    }
+  }
+
+  /* ========================================================
+   ATURAN STANDAR (UNTUK DESKTOP / LAPTOP)
+   ======================================================== */
+nav,
+.navbar {
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Logo di desktop: ukuran proporsional dan sejajar kiri */
+img[src*="Logo Seimphoria"],
+img[src*="Logo-Seimphoria"] {
+  height: 48px !important;
+  width: auto !important;
+  max-width: none !important;
+  display: inline-block !important;
+  margin: 0 !important;
+  vertical-align: middle;
+}
+
+/* ========================================================
+   ATURAN KHUSUS LAYAR HP (HANYA AKTIF DI MAX 768px)
+   ======================================================== */
+@media (max-width: 768px) {
+  /* Di HP pembungkus dibuat bertingkat ke tengah */
+  nav,
+  .navbar,
+  .navbar-box {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    gap: 6px !important;
+  }
+
+  /* Logo di HP: berada di tengah dan ramping */
+  img[src*="Logo Seimphoria"],
+  img[src*="Logo-Seimphoria"] {
+    height: 42px !important;
+    width: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  /* Tautan kembali ke beranda di bawah logo */
+  .navbar a:not(:has(img)),
+  nav a:not(:has(img)) {
+    margin-top: 4px !important;
+    font-size: 0.85rem !important;
   }
 }
