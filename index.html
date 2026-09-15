@@ -92,6 +92,30 @@
         </div>
       </section>
 
+      <section class="announcement-section" data-aos="fade-up">
+        <div class="container">
+          <div class="announcement-box">
+            <div class="announcement-badge">
+              <i class="fa-solid fa-bullhorn"></i> PARK BULLETIN
+            </div>
+            <div class="announcement-content">
+              <span class="announcement-date">15 September 2026</span>
+              <p><strong>Update Terbaru:</strong> Foto udah bisa di lihat di Memorie Line & piala kejuaraan terbaru telah ditambahkan ke Trophy Corner! 🎉</p>
+            </div>
+          </div>
+          <div class="announcement-box">
+            <div class="announcement-badge">
+              <i class="fa-solid fa-bullhorn"></i> PARK BULLETIN
+            </div>
+            <div class="announcement-content">
+              <span class="announcement-date">16 September 2026</span>
+              <p><strong>Update Terbaru:</strong> Fitur baru rilis! Sekarang pesan dan masukan manis terpilih sudah dipajang di Words of Seimphoria. 💌✨</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <!-- Tentang Section -->
       <section class="tentang" id="tentang">
         <div class="container">
@@ -238,6 +262,17 @@
                   </div>
                 </div>
               </div>
+              <div class="box prize-card" data-aos="zoom-in" data-aos-duration="800">
+                <div class="card-badge-top">Maulid Nabi</div>
+                <img src="assets/images/Piala Maulid Nabi 2026.jpeg" alt="Deskripsi Foto" />
+                <div class="desc">
+                  <h2>Penampilan Bakat Seni Islami</h2>
+                  <p class="event-date">10 Septermber 2026</p>
+                  <div class="trophy-tags">
+                    <span class="tag-badge"><i class="fa-solid fa-medal"></i> Penampilan Ter Solid</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -306,8 +341,80 @@
           </div>
         </div>
       </section>
+
+      <!-- SECTION: MASUKAN TERPILIH / WALL OF APPRECIATION -->
+<section class="feedback-showcase" id="curated-feedback">
+  <div class="container">
+    <!-- Judul Section -->
+    <div class="section-title" data-aos="fade-up">
+      <div class="header-badge">
+        <span>💌 WORDS OF SEIMPHORIA</span>
+      </div>
+      <h2>Pesan & Jejak Kata Terpilih</h2>
+      <p>Kutipan feedback yang dikirimkan oleh teman-teman untuk Seimphoria.</p>
+    </div>
+
+    <!-- Grid Kartu Masukan -->
+    <div class="feedback-grid">
+      
+      <!-- KARTU 1 -->
+      <div class="feedback-card" data-aos="zoom-in" data-aos-duration="800">
+        <div class="feedback-quote-icon">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+        <p class="feedback-text">
+          "Semangat kakak, semoga tidak di-hack"
+        </p>
+        <div class="feedback-sender">
+          <div class="avatar-badge">🔓</div>
+          <div class="sender-info">
+            <h4>Bjorka</h4>
+            <span>6 September 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KARTU 2 -->
+      <div class="feedback-card" data-aos="zoom-in" data-aos-duration="900">
+        <div class="feedback-quote-icon">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+        <p class="feedback-text">
+          "ini kok web nya bagus bgtt sii🤩🤩, btw tetap solid ya kelas XI-11"
+        </p>
+        <div class="feedback-sender">
+          <div class="avatar-badge">👤</div>
+          <div class="sender-info">
+            <h4>anoni</h4>
+            <span>8 Septermber 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KARTU 3 -->
+      <div class="feedback-card" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="feedback-quote-icon">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+        <p class="feedback-text">
+          "Gelokkkk kelasss"
+        </p>
+        <div class="feedback-sender">
+          <div class="avatar-badge">👤</div>
+          <div class="sender-info">
+            <h4>Anonim</h4>
+            <span>8 September 2026</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
     </main>
 
+    
     <!-- Footer -->
     <footer id="contact">
       <div class="container">
@@ -356,5 +463,13 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="dist/js/script.js"></script>
+
+    <!-- Modal / Popup Gambar -->
+    <div id="imageModal" class="image-modal" onclick="closeModal()">
+      <span class="modal-close">&times;</span>
+      <img class="modal-content" id="modalImg" alt="Pratinjau Foto">
+      <div id="modalCaption" class="modal-caption"></div>
+    </div>
+
   </body>
 </html>

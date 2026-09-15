@@ -200,3 +200,40 @@ if (feedbackForm) {
       });
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImg");
+  const captionText = document.getElementById("modalCaption");
+
+  // Ambil semua foto di dalam id="memories"
+  const galleryImages = document.querySelectorAll("#memories img");
+
+  galleryImages.forEach((img) => {
+    img.addEventListener("click", function () {
+      if (modal && modalImg) {
+        modal.classList.add("active");
+        modalImg.src = this.src;
+        if (captionText) {
+          captionText.innerHTML = this.alt || "Dokumentasi Seimphoria";
+        }
+      }
+    });
+  });
+});
+
+// Fungsi tutup modal
+function closeModal() {
+  const modal = document.getElementById("imageModal");
+  if (modal) {
+    modal.classList.remove("active");
+  }
+}
+
+// Tutup dengan tombol ESC di keyboard
+document.addEventListener("keydown", function (e) {
+  const modal = document.getElementById("imageModal");
+  if (e.key === "Escape" && modal && modal.classList.contains("active")) {
+    closeModal();
+  }
+});
