@@ -29,26 +29,35 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body id="beranda">
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-box">
-          <div class="logo">
-            <a href="#beranda">
-              <img src="assets/icon/Logo Seimphoria Pictorial.png" alt="Logo Seimphoria" />
-            </a>
-          </div>
-          <ul class="menu">
-            <li><a href="#beranda" class="active">Main Gate</a></li>
-            <li><a href="#tentang">About Us</a></li>
-            <li><a href="#memories">Memorie Lane</a></li>
-            <li><a href="#achievement">Prize Corner</a></li>
-            <li><a href="#saran">Feedback</a></li>
-            <li><a href="#contact">Find Us</a></li>
-          </ul>
-        </div>
+    
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-box">
+      <div class="logo">
+        <a href="#beranda">
+          <img src="assets/icon/Logo Seimphoria Pictorial.png" alt="Logo Seimphoria" />
+        </a>
       </div>
-    </nav>
+
+      <!-- TOMBOL HAMBURGER (Aktif di Layar HP & Tablet) -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="menu" id="navMenu">
+        <li><a href="#beranda" class="active">Main Gate</a></li>
+        <li><a href="#tentang">About Us</a></li>
+        <li><a href="#memories">Memorie Lane</a></li>
+        <li><a href="#achievement">Prize Corner</a></li>
+        <li><a href="#saran">Feedback</a></li>
+        <li><a href="#contact">Find Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
     <!-- Main Content -->
     <main>
@@ -95,24 +104,30 @@
       <section class="announcement-section" data-aos="fade-up">
         <div class="container">
           <div class="announcement-box">
+      
+            <!-- Badge Cukup 1 Saja -->
             <div class="announcement-badge">
               <i class="fa-solid fa-bullhorn"></i> PARK BULLETIN
             </div>
-            <div class="announcement-content">
-              <span class="announcement-date">15 September 2026</span>
-              <p><strong>Update Terbaru:</strong> Foto udah bisa di lihat di Memorie Line & piala kejuaraan terbaru telah ditambahkan ke Trophy Corner! 🎉</p>
+      
+            <!-- Konten Daftar Update -->
+            <div class="bulletin-list">
+      
+              <!-- Update Paling Baru -->
+              <div class="bulletin-item latest">
+                <span class="bulletin-date">16 September 2026</span>
+                <p><strong>Update Terbaru:</strong> Fitur baru rilis! Sekarang pesan dan masukan manis terpilih sudah dipajang di Words of Seimphoria. 💌✨</p>
+              </div>
+      
+              <!-- Update Sebelumnya -->
+              <div class="bulletin-item">
+                <span class="bulletin-date">15 September 2026</span>
+                <p><strong>Update Sebelumnya:</strong> Foto sudah bisa dilihat di Memorie Line & piala kejuaraan terbaru telah ditambahkan ke Trophy Corner! 🎉</p>
+              </div>
+      
             </div>
+      
           </div>
-          <div class="announcement-box">
-            <div class="announcement-badge">
-              <i class="fa-solid fa-bullhorn"></i> PARK BULLETIN
-            </div>
-            <div class="announcement-content">
-              <span class="announcement-date">16 September 2026</span>
-              <p><strong>Update Terbaru:</strong> Fitur baru rilis! Sekarang pesan dan masukan manis terpilih sudah dipajang di Words of Seimphoria. 💌✨</p>
-            </div>
-          </div>
-
         </div>
       </section>
 
@@ -190,7 +205,7 @@
               </div>
 
               <div class="box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                <img src="assets/images/Foto Agustus 11.jpeg" alt="HUT RI" />
+                <img src="assets/images/Foto Agustus 11.jpeg" alt="17an 2026" />
                 <div class="desc">
                   <h2>17an 2026</h2>
                   <p>12-13 Agustus 2026</p>
@@ -208,7 +223,7 @@
               </div>
 
               <div class="box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
-                <img src="assets/images/Es Buah Pramuka.jpeg" alt="Aktivitas Lainnya" />
+                <img src="assets/images/Es Buah Pramuka.jpeg" alt="Pramuka - Segar Bersama" />
                 <div class="desc">
                   <h2>Pramuka - Segar Bersama</h2>
                   <p>21 Agustus 2026</p>
@@ -217,7 +232,7 @@
               </div>
 
               <div class="box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
-                <img src="assets/images/Smanda Cup 2026.jpg" alt="Aktivitas Lainnya" />
+                <img src="assets/images/Smanda Cup 2026.jpg" alt="Smanda Cup 2026" />
                 <div class="desc">
                   <h2>Smanda Cup</h2>
                   <p>4 September 2026</p>

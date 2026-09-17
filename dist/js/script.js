@@ -237,3 +237,22 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
+
+// ================= TOGGLE NAVBAR HAMBURGER =================
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const navMenu = document.getElementById('navMenu');
+
+if (hamburgerBtn && navMenu) {
+  hamburgerBtn.addEventListener('click', () => {
+    hamburgerBtn.classList.toggle('open');
+    navMenu.classList.toggle('open');
+  });
+
+  // Tutup menu otomatis jika salah satu tautan diklik
+  document.querySelectorAll('#navMenu li a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburgerBtn.classList.remove('open');
+      navMenu.classList.remove('open');
+    });
+  });
+}
