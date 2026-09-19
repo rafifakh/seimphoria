@@ -776,19 +776,23 @@ body {
    MODAL / POPUP GAMBAR (ANTI-OVERFLOW & CENTERED)
    ======================================================== */
 
-/* 1. Kotak Latar Gelap (Overlay) */
+/* 1. Kotak Latar Gelap (Overlay Penuh Satu Layar HP) */
 .image-modal {
   display: none;
-  position: fixed;
-  inset: 0; /* Mengunci top, right, bottom, left: 0 */
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(15, 23, 42, 0.9);
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: rgba(15, 23, 42, 0.92) !important;
   backdrop-filter: blur(8px);
-  z-index: 99999;
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999999 !important;
   padding: 20px;
   box-sizing: border-box;
-  overflow: hidden; /* Mencegah layar goyang/bocor */
+  overflow: hidden;
 }
 
 /* 2. Saat Modal Dibuka */
