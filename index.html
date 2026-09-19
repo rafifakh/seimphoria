@@ -480,9 +480,12 @@
     <script src="dist/js/script.js"></script>
 
     <!-- Modal / Popup Gambar -->
-    <div id="imageModal" class="image-modal" onclick="closeModal()">
-      <span class="modal-close">&times;</span>
-      <img class="modal-content" id="modalImg" alt="Pratinjau Foto">
+
+    <div id="imageModal" class="image-modal">
+      <span class="modal-close" id="closeModalBtn">&times;</span>
+      <div class="modal-img-wrapper">
+        <img class="modal-content" id="modalImg" alt="Pratinjau Foto" />
+      </div>
       <div id="modalCaption" class="modal-caption"></div>
     </div>
     

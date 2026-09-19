@@ -785,7 +785,7 @@ body {
    MODAL / POPUP GAMBAR (ANTI-OVERFLOW & CENTERED)
    ======================================================== */
 
-/* 1. Kotak Latar Gelap (Overlay) */
+/* 1. Overlay Modal */
 .image-modal {
   display: none;
   position: fixed !important;
@@ -793,17 +793,15 @@ body {
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  background-color: rgba(15, 23, 42, 0.93) !important;
+  background-color: rgba(15, 23, 42, 0.94) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 999999 !important;
-  padding: 16px;
   box-sizing: border-box;
   overflow: hidden !important;
-  touch-action: none;
+  /* touch-action sengaja TIDAK dimatikan agar gestur sentuh terbaca */
 }
 
-/* 2. Saat Modal Terbuka */
 .image-modal.active {
   display: flex !important;
   flex-direction: column;
@@ -811,43 +809,59 @@ body {
   align-items: center;
 }
 
-/* 3. Gambar Foto di Dalam Modal */
+/* 2. Wadah Gambar agar Zoom Tidak Meluber */
+.modal-img-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 92%;
+  max-height: 75vh;
+  overflow: visible;
+}
+
+/* 3. Gambar Foto (Bisa di-scale & digeser) */
 .image-modal img.modal-content {
-  max-width: 85% !important;
+  max-width: 90vw !important;
   max-height: 70vh !important;
   width: auto !important;
   height: auto !important;
   object-fit: contain;
-  border-radius: 14px;
+  border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  margin: 0 auto !important;
   display: block;
+  transform-origin: center center;
+  transition: transform 0.1s ease-out; /* Pergerakan halus saat zoom */
+  cursor: zoom-in;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* 4. Teks Keterangan Foto */
 .modal-caption {
   margin-top: 14px;
-  color: #ffffff;
-  font-size: 14px;
+  color: #f8fafc;
+  font-size: 13px;
   font-weight: 500;
   text-align: center;
   max-width: 85%;
+  pointer-events: none;
 }
 
 /* 5. Tombol Close (Silang) */
 .modal-close {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 36px;
-  height: 36px;
+  top: 18px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
   background: rgba(255, 255, 255, 0.2);
   color: #ffffff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 26px;
   line-height: 1;
   cursor: pointer;
   z-index: 1000000;

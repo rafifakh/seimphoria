@@ -222,26 +222,121 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Fungsi saat FOTO DIKLIK (Membuka Modal)
-function openModal(imgSrc, captionText) {
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("modalImg");
-  const modalCaption = document.getElementById("modalCaption");
+// ================= LOGIKA MODAL DENGAN FITUR ZOOM INTERAKTIF =================
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImg");
+const modalCaption = document.getElementById("modalCaption");
+const closeBtn = document.getElementById("closeModalBtn");
 
-  modalImg.src = imgSrc;
-  if (modalCaption) {
-    modalCaption.textContent = captionText || "";
+let scale = 1;
+let startDist = 0;
+let posX = 0;
+let posY = 0;
+let startX = 0;
+let startY = 0;
+let isDragging = false;
+
+// Fungsi Reset Posisi & Skala
+function resetZoom() {
+  scale = 1;
+  posX = 0;
+  posY = 0;
+  if (modalImg) {
+    modalImg.style.transform = "scale(1) translate(0px, 0px)";
+    modalImg.style.cursor = "zoom-in";
   }
-
-  modal.classList.add("active");
-  document.body.classList.add("modal-open"); // <-- KUNCI SCROLL LAYAR HP
 }
 
-// Fungsi MENUTUP Modal
-function closeModal() {
-  const modal = document.getElementById("imageModal");
+// Fungsi Buka Modal
+window.openModal = function (imgSrc, captionText) {
+  if (!modal || !modalImg) return;
+  modalImg.src = imgSrc;
+  if (modalCaption) modalCaption.textContent = captionText || "";
+  resetZoom();
+  modal.classList.add("active");
+};
+
+// Fungsi Tutup Modal
+window.closeModal = function () {
+  if (!modal) return;
   modal.classList.remove("active");
-  document.body.classList.remove("modal-open"); // <-- BUKA KEMBALI KUNCI SCROLL
+  resetZoom();
+};
+
+if (closeBtn) {
+  closeBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    window.closeModal();
+  });
+}
+
+// Klik di luar foto (di background gelap) untuk menutup
+if (modal) {
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      window.closeModal();
+    }
+  });
+}
+
+// ---- INTERAKSI DI HP (PINCH TO ZOOM & DRAG) ----
+if (modalImg) {
+  modalImg.addEventListener(
+    "touchstart",
+    (e) => {
+      if (e.touches.length === 2) {
+        // Deteksi jarak 2 jari
+        startDist = Math.hypot(
+          e.touches[0].pageX - e.touches[1].pageX,
+          e.touches[0].pageY - e.touches[1].pageY
+        );
+      } else if (e.touches.length === 1 && scale > 1) {
+        // Mulai geser foto saat sudah ter-zoom
+        isDragging = true;
+        startX = e.touches[0].pageX - posX;
+        startY = e.touches[0].pageY - posY;
+      }
+    },
+    { passive: true }
+  );
+
+  modalImg.addEventListener(
+    "touchmove",
+    (e) => {
+      if (e.touches.length === 2) {
+        const dist = Math.hypot(
+          e.touches[0].pageX - e.touches[1].pageX,
+          e.touches[0].pageY - e.touches[1].pageY
+        );
+        const factor = dist / startDist;
+        scale = Math.min(Math.max(1, scale * factor), 4); // Batas zoom 1x - 4x
+        startDist = dist;
+        modalImg.style.transform = `scale(${scale}) translate(${posX / scale}px, ${posY / scale}px)`;
+      } else if (e.touches.length === 1 && isDragging && scale > 1) {
+        posX = e.touches[0].pageX - startX;
+        posY = e.touches[0].pageY - startY;
+        modalImg.style.transform = `scale(${scale}) translate(${posX / scale}px, ${posY / scale}px)`;
+      }
+    },
+    { passive: true }
+  );
+
+  modalImg.addEventListener("touchend", (e) => {
+    if (e.touches.length < 2) startDist = 0;
+    if (e.touches.length === 0) isDragging = false;
+    if (scale <= 1) resetZoom();
+  });
+
+  // Klik ganda (double-tap / double-click) untuk toggle zoom cepat
+  modalImg.addEventListener("dblclick", () => {
+    if (scale === 1) {
+      scale = 2.5;
+      modalImg.style.cursor = "zoom-out";
+    } else {
+      resetZoom();
+    }
+    modalImg.style.transform = `scale(${scale}) translate(0px, 0px)`;
+  });
 }
 
 // ================= TOGGLE NAVBAR HAMBURGER =================
