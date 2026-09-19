@@ -847,6 +847,12 @@ body {
   z-index: 100000;
 }
 
+body.modal-open {
+  overflow: hidden !important;
+  height: 100vh !important;
+  touch-action: none !important;
+}
+
 .modal-close:hover {
   background: #db2777;
   color: #ffffff;

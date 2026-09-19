@@ -222,21 +222,27 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Fungsi tutup modal
-function closeModal() {
+// Fungsi saat FOTO DIKLIK (Membuka Modal)
+function openModal(imgSrc, captionText) {
   const modal = document.getElementById("imageModal");
-  if (modal) {
-    modal.classList.remove("active");
+  const modalImg = document.getElementById("modalImg");
+  const modalCaption = document.getElementById("modalCaption");
+
+  modalImg.src = imgSrc;
+  if (modalCaption) {
+    modalCaption.textContent = captionText || "";
   }
+
+  modal.classList.add("active");
+  document.body.classList.add("modal-open"); // <-- KUNCI SCROLL LAYAR HP
 }
 
-// Tutup dengan tombol ESC di keyboard
-document.addEventListener("keydown", function (e) {
+// Fungsi MENUTUP Modal
+function closeModal() {
   const modal = document.getElementById("imageModal");
-  if (e.key === "Escape" && modal && modal.classList.contains("active")) {
-    closeModal();
-  }
-});
+  modal.classList.remove("active");
+  document.body.classList.remove("modal-open"); // <-- BUKA KEMBALI KUNCI SCROLL
+}
 
 // ================= TOGGLE NAVBAR HAMBURGER =================
 const hamburgerBtn = document.getElementById('hamburgerBtn');
