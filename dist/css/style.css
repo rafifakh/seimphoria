@@ -41,6 +41,7 @@ body {
   color: var(--text-dark);
   background-color: var(--bg-light);
   line-height: 1.6;
+  padding-top: 70px;
 }
 
 .container {
@@ -59,10 +60,11 @@ body {
    NAVBAR BASE & DESKTOP STYLES
    ======================================================== */
    .navbar {
-    position: sticky;
+    position: fixed !important; /* Terkunci permanen di viewport layar */
     top: 0;
     left: 0;
     width: 100%;
+    height: 70px; 
     z-index: 9999;
     background-color: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(10px);
@@ -177,84 +179,117 @@ body {
   /* ========================================================
      RESPONSIVE (HP & TABLET: Lebar Layar <= 991px)
      ======================================================== */
-  @media (max-width: 991px) {
-    .navbar {
-      height: 70px !important;
-      padding: 0 !important;
+     @media (max-width: 991px) {
+      .navbar {
+        height: 70px !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+      }
+    
+      .navbar .container {
+        height: 100% !important;
+        width: 100% !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        display: flex !important;
+        align-items: center !important;
+      }
+    
+      /* Kunci Baris Sejajar Tengah */
+      .navbar-box {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin: 0 !important;
+      }
+    
+      /* Logo */
+      .navbar-box .logo,
+      .navbar-box .logo a {
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+    
+      .navbar-box .logo img {
+        height: 42px !important;
+        width: auto !important;
+        display: block !important;
+        margin: 0 !important;
+        object-fit: contain !important;
+      }
+    
+      /* Kontainer Tombol Hamburger */
+      .hamburger-btn {
+        display: flex !important;
+        flex-direction: column !important; /* Susun 3 garis ke bawah */
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 5px !important;               /* Jarak antar baris */
+        width: 40px !important;
+        height: 40px !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer !important;
+        margin: 0 0 0 auto !important;     /* Kunci di pojok kanan */
+        z-index: 1001 !important;
+      }
+    
+      /* Bentuk Fisik Tiap Garis */
+      .hamburger-btn span {
+        display: block !important;
+        width: 24px !important;            /* Panjang garis */
+        height: 3px !important;             /* Ketebalan garis */
+        background-color: #1e1b4b !important; /* Warna garis */
+        border-radius: 4px !important;
+        transition: all 0.3s ease !important;
+        flex-shrink: 0 !important;          /* Larang garis menyusut/gepeng */
+      }
+    
+      /* Panel Menu Dropdown */
+      .navbar-box .menu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 22px 16px;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 16px 30px rgba(30, 27, 75, 0.1);
+        border-bottom: 3px solid #fed7aa;
+    
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-15px);
+        transition: all 0.3s ease;
+      }
+    
+      .navbar-box .menu.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+    
+      .navbar-box .menu li {
+        width: 100%;
+        text-align: center;
+      }
+    
+      .navbar-box .menu li a {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        font-size: 15px;
+      }
     }
-  
-    .navbar .container {
-      padding-left: 16px !important;
-      padding-right: 16px !important;
-    }
-  
-    /* Kunci Baris Horizontal di HP & Tablet */
-    .navbar-box {
-      display: flex !important;
-      flex-direction: row !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-    }
-  
-    /* Kunci Logo di Pojok Kiri */
-    .navbar-box .logo,
-    .navbar-box .logo a {
-      display: flex !important;
-      align-items: center !important;
-      margin: 0 !important;
-    }
-  
-    .navbar-box .logo img {
-      height: 44px !important;
-      width: auto !important;
-      margin: 0 !important;
-    }
-  
-    /* Munculkan Hamburger di Pojok Kanan */
-    .hamburger-btn {
-      display: flex !important;
-      margin-left: auto !important;
-    }
-  
-    /* Panel Menu Dropdown */
-    .navbar-box .menu {
-      position: absolute;
-      top: 70px;
-      left: 0;
-      width: 100%;
-      background: #ffffff;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      padding: 22px 16px;
-      border-radius: 0 0 20px 20px;
-      box-shadow: 0 16px 30px rgba(30, 27, 75, 0.1);
-      border-bottom: 3px solid #fed7aa;
-  
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(-15px);
-      transition: all 0.3s ease;
-    }
-  
-    .navbar-box .menu.open {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-  
-    .navbar-box .menu li {
-      width: 100%;
-      text-align: center;
-    }
-  
-    .navbar-box .menu li a {
-      display: block;
-      width: 100%;
-      padding: 10px 0;
-      font-size: 15px;
-    }
-  }
 
 /* ================= HERO SECTION (PARK MAIN GATE) ================= */
 .hero-pastel {
