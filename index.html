@@ -6,7 +6,11 @@
     <title>Seimphoria Website</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/icon/Logo-Seimphoria.png" type="image/png" />
+    <link
+      rel="shortcut icon"
+      href="assets/icon/Logo-Seimphoria.png"
+      type="image/png"
+    />
 
     <!-- CSS -->
     <link rel="stylesheet" href="dist/css/style.css" />
@@ -14,7 +18,10 @@
     <!-- Font Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Font Awesome CDN -->
     <link
@@ -29,63 +36,104 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body id="beranda">
-    
-<!-- Navbar -->
-<nav class="navbar">
-  <div class="container">
-    <div class="navbar-box">
-      <div class="logo">
-        <a href="#beranda">
-          <img src="assets/icon/Logo Seimphoria Pictorial.png" alt="Logo Seimphoria" />
-        </a>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-box">
+          <div class="logo">
+            <a href="#beranda">
+              <img
+                src="assets/icon/Logo Seimphoria Pictorial.png"
+                alt="Logo Seimphoria"
+              />
+            </a>
+          </div>
+
+          <!-- Tombol Hamburger -->
+          <button
+            class="hamburger-btn"
+            id="hamburgerBtn"
+            aria-label="Toggle Menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <ul class="menu" id="navMenu">
+            <li><a href="#beranda" class="active">Main Gate</a></li>
+            <li><a href="#tentang">About Us</a></li>
+            <li><a href="#memories">Memorie Lane</a></li>
+            <li><a href="#achievement">Prize Corner</a></li>
+            <li><a href="#saran">Feedback</a></li>
+            <li><a href="#contact">Find Us</a></li>
+          </ul>
+        </div>
       </div>
 
-      <!-- Tombol Hamburger -->
-      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <!-- Scroll Progress Indicator -->
+      <div class="scroll-progress-bar" id="scrollProgress"></div>
 
-      <ul class="menu" id="navMenu">
-        <li><a href="#beranda" class="active">Main Gate</a></li>
-        <li><a href="#tentang">About Us</a></li>
-        <li><a href="#memories">Memorie Lane</a></li>
-        <li><a href="#achievement">Prize Corner</a></li>
-        <li><a href="#saran">Feedback</a></li>
-        <li><a href="#contact">Find Us</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    </nav>
 
     <!-- Main Content -->
     <main>
       <!-- Hero Section -->
       <section class="hero-pastel" id="beranda">
         <div class="container">
-          <div class="hero-card-16-9" data-aos="zoom-in" data-aos-duration="1000">
+          <div
+            class="hero-card-16-9"
+            data-aos="zoom-in"
+            data-aos-duration="1000"
+          >
+            <div class="star-decor star-1">✦</div>
+            <div class="star-decor star-2">★</div>
+            <div class="star-decor star-3">✦</div>
+            <div class="star-decor star-4">★</div>
+
             <!-- Background Foto Kelas -->
-            <img src="assets/images/Foto Kelas 11.jpeg" alt="Foto Kelas Seimphoria" class="hero-bg-img" />
+            <img
+              src="assets/images/Foto Kelas 11.jpeg"
+              alt="Foto Kelas Seimphoria"
+              class="hero-bg-img"
+            />
 
             <!-- Overlay Gelap Pastel & Teks -->
             <div class="hero-overlay">
               <div class="hero-glass-content">
-                <div class="pastel-badge" data-aos="fade-down" data-aos-duration="700">
+                <div
+                  class="pastel-badge"
+                  data-aos="fade-down"
+                  data-aos-duration="700"
+                >
                   <i class="fa-solid fa-sparkles"></i>
                   <span>Our Precious Memories</span>
                 </div>
 
-                <h1 data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
+                <h1
+                  data-aos="fade-up"
+                  data-aos-duration="900"
+                  data-aos-delay="100"
+                >
                   Selamat Datang di <br />
                   <span class="highlight-text">Kelas XI-11</span>
                 </h1>
 
-                <p data-aos="fade-up" data-aos-duration="900" data-aos-delay="200">
-                  🎠 Unity in Diversity, Victory in Solidarity, Spirit of Seimphoria!! 🎠
+                <p
+                  data-aos="fade-up"
+                  data-aos-duration="900"
+                  data-aos-delay="200"
+                >
+                  🎠 Unity in Diversity, Victory in Solidarity, Spirit of
+                  Seimphoria!! 🎠
                 </p>
 
-                <div class="hero-btn-group" data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">
+                <div
+                  class="hero-btn-group"
+                  data-aos="fade-up"
+                  data-aos-duration="900"
+                  data-aos-delay="300"
+                >
                   <a href="#tentang" class="btn-pastel primary">
                     <i class="fa-solid fa-users"></i>
                     <span>About Us</span>
@@ -104,29 +152,33 @@
       <section class="announcement-section" data-aos="fade-up">
         <div class="container">
           <div class="announcement-box">
-      
             <!-- Badge Cukup 1 Saja -->
             <div class="announcement-badge">
               <i class="fa-solid fa-bullhorn"></i> PARK BULLETIN
             </div>
-      
+
             <!-- Konten Daftar Update -->
             <div class="bulletin-list">
-      
               <!-- Update Paling Baru -->
               <div class="bulletin-item latest">
                 <span class="bulletin-date">31 Oktober 2026</span>
-                <p><strong>Update Terbaru:</strong> Penambahan foto Maulid Nabi, PEMULOS, dan Kokurikuler di Memories Lane dan Hadiah Kokurikuler pada Prize Corner.</p>
+                <p>
+                  <strong>Update Terbaru:</strong> Penambahan foto Maulid Nabi,
+                  PEMULOS, dan Kokurikuler di Memories Lane dan Hadiah
+                  Kokurikuler pada Prize Corner, serta peningkatan tampilan visual.
+                </p>
               </div>
-      
+
               <!-- Update Sebelumnya -->
               <div class="bulletin-item">
                 <span class="bulletin-date">16 September 2026</span>
-                <p><strong>Update Sebelumnya:</strong> Fitur baru rilis! Sekarang pesan dan masukan manis terpilih sudah dipajang di Words of Seimphoria. 💌✨</p>
+                <p>
+                  <strong>Update Sebelumnya:</strong> Fitur baru rilis! Sekarang
+                  pesan dan masukan manis terpilih sudah dipajang di Words of
+                  Seimphoria. 💌✨
+                </p>
               </div>
-      
             </div>
-      
           </div>
         </div>
       </section>
@@ -136,14 +188,24 @@
         <div class="container">
           <div class="tentang-box">
             <div class="box" data-aos="fade-right" data-aos-duration="1000">
-              <img src="assets/images/Foto Depan Kelas.jpeg" alt="Tentang Kami" />
+              <img
+                src="assets/images/Foto Depan Kelas.jpeg"
+                alt="Tentang Kami"
+              />
             </div>
             <div class="box" data-aos="fade-left" data-aos-duration="1000">
               <h1>Tentang Kelas Kami</h1>
               <p>
-                🎠✨ SEIMPHORIA adalah ruang kecil tempat kami, XI-11, belajar, bertumbuh, dan menciptakan cerita bersama, dengan semangat dari dunia Sosiologi, Ekonomi, Informatika, dan Matematika Tingkat Lanjut, dibalut keceriaan dan euphoria yang menjadi warna perjalanan kami.
+                🎠✨ SEIMPHORIA adalah ruang kecil tempat kami, XI-11, belajar,
+                bertumbuh, dan menciptakan cerita bersama, dengan semangat dari
+                dunia Sosiologi, Ekonomi, Informatika, dan Matematika Tingkat
+                Lanjut, dibalut keceriaan dan euphoria yang menjadi warna
+                perjalanan kami.
                 <br /><br />
-                <strong>🎠 Unity in Diversity, Victory in Solidarity, Spirit of Seimphoria!! 🎠</strong>
+                <strong
+                  >🎠 Unity in Diversity, Victory in Solidarity, Spirit of
+                  Seimphoria!! 🎠</strong
+                >
               </p>
 
               <!-- Tombol Menuju Halaman Anggota Kelas -->
@@ -165,13 +227,24 @@
                 Siswa
               </h2>
             </div>
-            <div class="box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <div
+              class="box"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="200"
+            >
               <h2>
-                <span class="nama-guru">Ibu Umi Chasanah S.Pd., M.Si</span> <br />
+                <span class="nama-guru">Ibu Umi Chasanah S.Pd., M.Si</span>
+                <br />
                 - Wali Kelas -
               </h2>
             </div>
-            <div class="box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+            <div
+              class="box"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="400"
+            >
               <h2>
                 <span>7+</span> <br />
                 Kejuaraan
@@ -190,7 +263,11 @@
 
           <div class="akademik-slider-wrapper">
             <!-- Tombol Panah Kiri -->
-            <button class="slider-arrow prev" id="slidePrev" aria-label="Slide Sebelumnya">
+            <button
+              class="slider-arrow prev"
+              id="slidePrev"
+              aria-label="Slide Sebelumnya"
+            >
               <i class="fa-solid fa-chevron-left"></i>
             </button>
 
@@ -200,76 +277,157 @@
                 <div class="desc">
                   <h2>Dies Natalis SMAN 2 SMG KE-71</h2>
                   <p>24 Juli 2026</p>
-                  <p class="desc-detail">Turut memeriahkan semarak perayaan Dies Natalis SMA Negeri 2 Semarang dengan penuh semangat dan sukacita. 🎪✨</p>
+                  <p class="desc-detail">
+                    Turut memeriahkan semarak perayaan Dies Natalis SMA Negeri 2
+                    Semarang dengan penuh semangat dan sukacita. 🎪✨
+                  </p>
                 </div>
               </div>
 
-              <div class="box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+              <div
+                class="box"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="200"
+              >
                 <img src="assets/images/Foto Agustus 11.jpeg" alt="17an 2026" />
                 <div class="desc">
                   <h2>17an 2026</h2>
                   <p>12-13 Agustus 2026</p>
-                  <p class="desc-detail">Mengisi kemeriahan hari kemerdekaan dengan semangat juang, kekompakan, dan tawa tanpa henti. ❤️🤍</p>
+                  <p class="desc-detail">
+                    Mengisi kemeriahan hari kemerdekaan dengan semangat juang,
+                    kekompakan, dan tawa tanpa henti. ❤️🤍
+                  </p>
                 </div>
               </div>
 
-              <div class="box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+              <div
+                class="box"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="400"
+              >
                 <img src="assets/images/Seimpack.png" alt="Seimpack" />
                 <div class="desc">
                   <h2>SEIMPACK</h2>
                   <p>15 Agustus 2026</p>
-                  <p class="desc-detail">Aksi seru dan penuh taktik di arena bola beracun berpadu dengan kekompakan koreografi yang memukau. ⚡💃</p>
+                  <p class="desc-detail">
+                    Aksi seru dan penuh taktik di arena bola beracun berpadu
+                    dengan kekompakan koreografi yang memukau. ⚡💃
+                  </p>
                 </div>
               </div>
 
-              <div class="box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
-                <img src="assets/images/Es Buah Pramuka.jpeg" alt="Pramuka - Segar Bersama" />
+              <div
+                class="box"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="600"
+              >
+                <img
+                  src="assets/images/Es Buah Pramuka.jpeg"
+                  alt="Pramuka - Segar Bersama"
+                />
                 <div class="desc">
                   <h2>Pramuka - Segar Bersama</h2>
                   <p>21 Agustus 2026</p>
-                  <p class="desc-detail">Mengawali hari pertama kegiatan Pramuka lewat keseruan Segar Bersama, di mana kami saling bahu-membahu dan berkreasi meracik es buah yang menyegarkan. 🍧🍓✨</p>
+                  <p class="desc-detail">
+                    Mengawali hari pertama kegiatan Pramuka lewat keseruan Segar
+                    Bersama, di mana kami saling bahu-membahu dan berkreasi
+                    meracik es buah yang menyegarkan. 🍧🍓✨
+                  </p>
                 </div>
               </div>
 
-              <div class="box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
-                <img src="assets/images/Smanda Cup 2026.jpg" alt="Smanda Cup 2026" />
+              <div
+                class="box"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="600"
+              >
+                <img
+                  src="assets/images/Smanda Cup 2026.jpg"
+                  alt="Smanda Cup 2026"
+                />
                 <div class="desc">
                   <h2>Smanda Cup</h2>
                   <p>4 September 2026</p>
-                  <p class="desc-detail">🏀🎪 Semangat Smanda Cup berpadu dengan kekompakan koreografi red panda berkostum badut yang penuh energi. 🐼🔥✨</p>
+                  <p class="desc-detail">
+                    🏀🎪 Semangat Smanda Cup berpadu dengan kekompakan
+                    koreografi red panda berkostum badut yang penuh energi.
+                    🐼🔥✨
+                  </p>
                 </div>
               </div>
 
-              <div class="box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
-                <img src="assets/images/Maulid Nabi 2026.jpg" alt="Maulid Nabi 2026" />
+              <div
+                class="box"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="600"
+              >
+                <img
+                  src="assets/images/Maulid Nabi 2026.jpg"
+                  alt="Maulid Nabi 2026"
+                />
                 <div class="desc">
                   <h2>Maulid Nabi Muhammad SAW</h2>
                   <p>10 September 2026</p>
-                  <p class="desc-detail">🎠🌙 Semangat Maulid Nabi Muhammad SAW berpadu dengan suasana penuh kebersamaan dalam mengenang keteladanan Rasulullah dan menumbuhkan kecintaan kepada beliau. 🕌💚✨</p>
+                  <p class="desc-detail">
+                    🎠🌙 Semangat Maulid Nabi Muhammad SAW berpadu dengan
+                    suasana penuh kebersamaan dalam mengenang keteladanan
+                    Rasulullah dan menumbuhkan kecintaan kepada beliau. 🕌💚✨
+                  </p>
                 </div>
               </div>
 
-              <div class="box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+              <div
+                class="box"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="600"
+              >
                 <img src="assets/images/PEMULOS 2026.jpeg" alt="PEMULOS 2026" />
                 <div class="desc">
                   <h2>Pemilihan KETOS & WAKETOS 2026</h2>
                   <p>30 September 2026</p>
-                  <p class="desc-detail">🗳️🎠 Semangat Pemilos KETOS dan WAKETOS berpadu dengan antusiasme dalam menentukan pemimpin OSIS yang membawa harapan dan perubahan bagi sekolah. 💙✨🎟️</p>
+                  <p class="desc-detail">
+                    🗳️🎠 Semangat Pemilos KETOS dan WAKETOS berpadu dengan
+                    antusiasme dalam menentukan pemimpin OSIS yang membawa
+                    harapan dan perubahan bagi sekolah. 💙✨🎟️
+                  </p>
                 </div>
               </div>
 
-              <div class="box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
-                <img src="assets/images/Kokurikuler 2026.jpg" alt="Kokurikuler 2026" />
+              <div
+                class="box"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="600"
+              >
+                <img
+                  src="assets/images/Kokurikuler 2026.jpg"
+                  alt="Kokurikuler 2026"
+                />
                 <div class="desc">
                   <h2>🎭 SEIMLAWESI 2026 — Kokurikuler XI-11</h2>
                   <p>22 Oktober 2026</p>
-                  <p class="desc-detail">🌾🛡️ Perjalanan SEIMLAWESI menjadi perpaduan kreativitas, kekompakan, dan semangat dalam mengenal serta memperkenalkan kekayaan budaya Sulawesi melalui rangkaian senam kokurikuler. 🎶✨</p>
+                  <p class="desc-detail">
+                    🌾🛡️ Perjalanan SEIMLAWESI menjadi perpaduan kreativitas,
+                    kekompakan, dan semangat dalam mengenal serta memperkenalkan
+                    kekayaan budaya Sulawesi melalui rangkaian senam
+                    kokurikuler. 🎶✨
+                  </p>
                 </div>
               </div>
             </div>
 
             <!-- Tombol Panah Kanan -->
-            <button class="slider-arrow next" id="slideNext" aria-label="Slide Selanjutnya">
+            <button
+              class="slider-arrow next"
+              id="slideNext"
+              aria-label="Slide Selanjutnya"
+            >
               <i class="fa-solid fa-chevron-right"></i>
             </button>
           </div>
@@ -285,52 +443,91 @@
               <span>🏆 PRIZE CORNER & HONORS</span>
             </div>
             <h2>The Trophy Corner</h2>
-            <p>Jejak prestasi, kerja keras, dan kebanggaan yang dipersembahkan oleh Seimphoria.</p>
+            <p>
+              Jejak prestasi, kerja keras, dan kebanggaan yang dipersembahkan
+              oleh Seimphoria.
+            </p>
           </div>
 
           <!-- Wrapper -->
           <div class="achievement-slider-wrapper">
             <div class="achievement-box" id="achievementBox">
-              <div class="box prize-card" data-aos="zoom-in" data-aos-duration="800">
+              <div
+                class="box prize-card"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+              >
                 <div class="card-badge-top">HUT RI 2026</div>
-                <img src="assets/images/Hadiah lomba HUT RI.png" alt="Hadiah Lomba Kemerdekaan" />
+                <img
+                  src="assets/images/Hadiah lomba HUT RI.png"
+                  alt="Hadiah Lomba Kemerdekaan"
+                />
                 <div class="desc">
                   <h2>17-AN - UNGGUL ANGGAYUH KAMARDIKAN</h2>
                   <p class="event-date">17 Agustus 2026</p>
                   <div class="trophy-tags">
-                    <span class="tag-badge"><i class="fa-solid fa-medal"></i> Juara Selaras</span>
-                    <span class="tag-badge"><i class="fa-solid fa-medal"></i> Juara Jurit</span>
-                    <span class="tag-badge"><i class="fa-solid fa-medal"></i> Juara Video Vlog</span>
+                    <span class="tag-badge"
+                      ><i class="fa-solid fa-medal"></i> Juara Selaras</span
+                    >
+                    <span class="tag-badge"
+                      ><i class="fa-solid fa-medal"></i> Juara Jurit</span
+                    >
+                    <span class="tag-badge"
+                      ><i class="fa-solid fa-medal"></i> Juara Video Vlog</span
+                    >
                   </div>
                 </div>
               </div>
 
-              <div class="box prize-card" data-aos="zoom-in" data-aos-duration="800">
+              <div
+                class="box prize-card"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+              >
                 <div class="card-badge-top">Maulid Nabi</div>
-                <img src="assets/images/Piala Maulid Nabi 2026.jpeg" alt="Hadiah Lomba Maulid Nabi" />
+                <img
+                  src="assets/images/Piala Maulid Nabi 2026.jpeg"
+                  alt="Hadiah Lomba Maulid Nabi"
+                />
                 <div class="desc">
                   <h2>Penampilan Bakat Seni Islami</h2>
                   <p class="event-date">10 Septermber 2026</p>
                   <div class="trophy-tags">
-                    <span class="tag-badge"><i class="fa-solid fa-medal"></i> Penampilan Ter Solid</span>
+                    <span class="tag-badge"
+                      ><i class="fa-solid fa-medal"></i> Penampilan Ter
+                      Solid</span
+                    >
                   </div>
                 </div>
               </div>
 
-              <div class="box prize-card" data-aos="zoom-in" data-aos-duration="800">
+              <div
+                class="box prize-card"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+              >
                 <div class="card-badge-top">Kokurikuler 2026</div>
-                <img src="assets/images/Hadiah Kokurikuler 2026.jpeg" alt="Hadiah Kokurikuler - Senam" />
+                <img
+                  src="assets/images/Hadiah Kokurikuler 2026.jpeg"
+                  alt="Hadiah Kokurikuler - Senam"
+                />
                 <div class="desc">
                   <h2>Kokurikuler XI-11 — SEIMLAWESI 2026</h2>
                   <p class="event-date">22 Oktober 2026</p>
                   <div class="trophy-tags">
-                    <span class="tag-badge"><i class="fa-solid fa-medal"></i> Kostum Terbaik 1</span>
-                    <span class="tag-badge"><i class="fa-solid fa-medal"></i> Senam Terkompak</span>
-                    <span class="tag-badge"><i class="fa-solid fa-medal"></i> Infografis Matematika Terbaik 1</span>
+                    <span class="tag-badge"
+                      ><i class="fa-solid fa-medal"></i> Kostum Terbaik 1</span
+                    >
+                    <span class="tag-badge"
+                      ><i class="fa-solid fa-medal"></i> Senam Terkompak</span
+                    >
+                    <span class="tag-badge"
+                      ><i class="fa-solid fa-medal"></i> Infografis Matematika
+                      Terbaik 1</span
+                    >
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -345,31 +542,51 @@
               <span>🎪 PARK ASPIRATION & SUGGESTION</span>
             </div>
             <h2>Bantu Kami Berkembang</h2>
-            <p>Punya ide seru, usulan fitur, atau kritik membangun untuk Seimphoria? Tuliskan aspirasimu di sini!</p>
+            <p>
+              Punya ide seru, usulan fitur, atau kritik membangun untuk
+              Seimphoria? Tuliskan aspirasimu di sini!
+            </p>
           </div>
 
           <div class="feedback-wrapper" data-aos="fade-up" data-aos-delay="100">
-            <form id="feedbackForm" action="https://script.google.com/macros/s/AKfycbyliaGapaJi3dzfrik8pKUSXAiTXGjlq5z9UxN7CtDTm0FswxJ1jYhgI1RCNidfbYEB/exec" method="POST">
+            <form
+              id="feedbackForm"
+              action="https://script.google.com/macros/s/AKfycbyliaGapaJi3dzfrik8pKUSXAiTXGjlq5z9UxN7CtDTm0FswxJ1jYhgI1RCNidfbYEB/exec"
+              method="POST"
+            >
               <!-- Input Honeypot -->
-              <input type="text" name="website_url" style="display:none !important;" tabindex="-1" autocomplete="off" />
+              <input
+                type="text"
+                name="website_url"
+                style="display: none !important"
+                tabindex="-1"
+                autocomplete="off"
+              />
 
               <!-- Input Nama / Panggilan -->
               <div class="input-group">
-                <label for="inputNama"><i class="fa-solid fa-user"></i> Nama / Panggilan</label>
-                <input 
-                  type="text" 
-                  id="inputNama" 
-                  name="nama" 
-                  placeholder="Contoh: Rafif / Anonim" 
-                  required 
+                <label for="inputNama"
+                  ><i class="fa-solid fa-user"></i> Nama / Panggilan</label
+                >
+                <input
+                  type="text"
+                  id="inputNama"
+                  name="nama"
+                  placeholder="Contoh: Rafif / Anonim"
+                  required
                 />
               </div>
 
               <!-- Pilihan Kategori Masukan -->
               <div class="input-group">
-                <label for="selectKategori"><i class="fa-solid fa-layer-group"></i> Kategori Masukan</label>
+                <label for="selectKategori"
+                  ><i class="fa-solid fa-layer-group"></i> Kategori
+                  Masukan</label
+                >
                 <select id="selectKategori" name="kategori" required>
-                  <option value="Tampilan / UI Design">Desain & Tampilan (UI/UX)</option>
+                  <option value="Tampilan / UI Design">
+                    Desain & Tampilan (UI/UX)
+                  </option>
                   <option value="Fitur Baru">Ide Fitur Baru</option>
                   <option value="Data / Konten">Koreksi Data / Foto</option>
                   <option value="Lainnya">Pesan Semangat / Lainnya</option>
@@ -378,12 +595,15 @@
 
               <!-- Area Teks Isi Pesan/Saran -->
               <div class="input-group">
-                <label for="textareaPesan"><i class="fa-solid fa-comment-dots"></i> Isi Masukan & Saran</label>
-                <textarea 
-                  id="textareaPesan" 
-                  name="pesan" 
-                  rows="5" 
-                  placeholder="Tuliskan masukan atau saranmu secara jelas di sini ya.." 
+                <label for="textareaPesan"
+                  ><i class="fa-solid fa-comment-dots"></i> Isi Masukan &
+                  Saran</label
+                >
+                <textarea
+                  id="textareaPesan"
+                  name="pesan"
+                  rows="5"
+                  placeholder="Tuliskan masukan atau saranmu secara jelas di sini ya.."
                   required
                 ></textarea>
               </div>
@@ -401,87 +621,105 @@
       </section>
 
       <!-- SECTION: MASUKAN TERPILIH / WALL OF APPRECIATION -->
-<section class="feedback-showcase" id="curated-feedback">
-  <div class="container">
-    <!-- Judul Section -->
-    <div class="section-title" data-aos="fade-up">
-      <div class="header-badge">
-        <span>💌 WORDS OF SEIMPHORIA</span>
-      </div>
-      <h2>Pesan & Jejak Kata Terpilih</h2>
-      <p>Kutipan feedback yang dikirimkan oleh teman-teman untuk Seimphoria.</p>
-    </div>
+      <section class="feedback-showcase" id="curated-feedback">
+        <div class="container">
+          <!-- Judul Section -->
+          <div class="section-title" data-aos="fade-up">
+            <div class="header-badge">
+              <span>💌 WORDS OF SEIMPHORIA</span>
+            </div>
+            <h2>Pesan & Jejak Kata Terpilih</h2>
+            <p>
+              Kutipan feedback yang dikirimkan oleh teman-teman untuk
+              Seimphoria.
+            </p>
+          </div>
 
-    <!-- Grid Kartu Masukan -->
-    <div class="feedback-grid">
-      
-      <!-- KARTU 1 -->
-      <div class="feedback-card" data-aos="zoom-in" data-aos-duration="800">
-        <div class="feedback-quote-icon">
-          <i class="fa-solid fa-quote-left"></i>
-        </div>
-        <p class="feedback-text">
-          "Semangat kakak, semoga tidak di-hack"
-        </p>
-        <div class="feedback-sender">
-          <div class="avatar-badge">🔓</div>
-          <div class="sender-info">
-            <h4>Bjorka</h4>
-            <span>6 September 2026</span>
+          <!-- Grid Kartu Masukan -->
+          <div class="feedback-grid">
+            <!-- KARTU 1 -->
+            <div
+              class="feedback-card"
+              data-aos="zoom-in"
+              data-aos-duration="800"
+            >
+              <div class="feedback-quote-icon">
+                <i class="fa-solid fa-quote-left"></i>
+              </div>
+              <p class="feedback-text">
+                "Semangat kakak, semoga tidak di-hack"
+              </p>
+              <div class="feedback-sender">
+                <div class="avatar-badge">🔓</div>
+                <div class="sender-info">
+                  <h4>Bjorka</h4>
+                  <span>6 September 2026</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- KARTU 2 -->
+            <div
+              class="feedback-card"
+              data-aos="zoom-in"
+              data-aos-duration="900"
+            >
+              <div class="feedback-quote-icon">
+                <i class="fa-solid fa-quote-left"></i>
+              </div>
+              <p class="feedback-text">
+                "ini kok web nya bagus bgtt sii🤩🤩, btw tetap solid ya kelas
+                XI-11"
+              </p>
+              <div class="feedback-sender">
+                <div class="avatar-badge">👤</div>
+                <div class="sender-info">
+                  <h4>anoni</h4>
+                  <span>8 Septermber 2026</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- KARTU 3 -->
+            <div
+              class="feedback-card"
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+            >
+              <div class="feedback-quote-icon">
+                <i class="fa-solid fa-quote-left"></i>
+              </div>
+              <p class="feedback-text">"Gelokkkk kelasss"</p>
+              <div class="feedback-sender">
+                <div class="avatar-badge">👤</div>
+                <div class="sender-info">
+                  <h4>Anonim</h4>
+                  <span>8 September 2026</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- KARTU 2 -->
-      <div class="feedback-card" data-aos="zoom-in" data-aos-duration="900">
-        <div class="feedback-quote-icon">
-          <i class="fa-solid fa-quote-left"></i>
-        </div>
-        <p class="feedback-text">
-          "ini kok web nya bagus bgtt sii🤩🤩, btw tetap solid ya kelas XI-11"
-        </p>
-        <div class="feedback-sender">
-          <div class="avatar-badge">👤</div>
-          <div class="sender-info">
-            <h4>anoni</h4>
-            <span>8 Septermber 2026</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- KARTU 3 -->
-      <div class="feedback-card" data-aos="zoom-in" data-aos-duration="1000">
-        <div class="feedback-quote-icon">
-          <i class="fa-solid fa-quote-left"></i>
-        </div>
-        <p class="feedback-text">
-          "Gelokkkk kelasss"
-        </p>
-        <div class="feedback-sender">
-          <div class="avatar-badge">👤</div>
-          <div class="sender-info">
-            <h4>Anonim</h4>
-            <span>8 September 2026</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
+      </section>
     </main>
 
-    
     <!-- Footer -->
     <footer id="contact">
       <div class="container">
         <div class="footer-box">
           <div class="box">
             <h2>Media Sosial</h2>
-            <p>Ikuti kabar kegiatan, dokumentasi kelas, dan keseruan anak SEIMPHORIA.</p>
+            <p>
+              Ikuti kabar kegiatan, dokumentasi kelas, dan keseruan anak
+              SEIMPHORIA.
+            </p>
             <div class="social">
-              <a href="https://www.instagram.com/seimphoria_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/seimphoria_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
                 <i class="fa-brands fa-instagram"></i>
               </a>
             </div>
@@ -518,9 +756,14 @@
       <i class="fa-solid fa-arrow-up"></i>
     </a>
 
+    <!-- Pasang script confetti sebelum script utama -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="dist/js/script.js"></script>
+
     
   </body>
 </html>

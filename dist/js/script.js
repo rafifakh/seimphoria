@@ -124,6 +124,63 @@ document.addEventListener("DOMContentLoaded", () => {
   setupSmartSlider("achievementBox", "achievePrev", "achieveNext");
 });
 
+/* ================= PARTIKEL JEJAK BINTANG SEIMPHORIA ================= */
+(function initSparkleTrail() {
+  const starIcons = ["✦", "★", "✧", "•"];
+  const starColors = ["#f472b6", "#fb923c", "#facc15", "#a78bfa", "#38bdf8"];
+  let lastSpawnTime = 0;
+
+  function createSparkle(x, y) {
+    const star = document.createElement("span");
+    star.className = "trail-star";
+
+    // Pilih bentuk dan warna secara acak
+    star.textContent = starIcons[Math.floor(Math.random() * starIcons.length)];
+    const chosenColor = starColors[Math.floor(Math.random() * starColors.length)];
+    star.style.color = chosenColor;
+    star.style.textShadow = `0 0 6px ${chosenColor}`;
+
+    // Variasi ukuran acak antara 12px s.d 22px
+    const size = Math.floor(Math.random() * 11) + 12;
+    star.style.fontSize = `${size}px`;
+
+    // Posisi tepat di ujung kursor / sentuhan jari
+    star.style.left = `${x}px`;
+    star.style.top = `${y}px`;
+
+    document.body.appendChild(star);
+
+    setTimeout(() => {
+      star.remove();
+    }, 800);
+  }
+
+  // Throttle agar tidak membebani browser jika gerakan terlalu cepat
+  function handleSpawn(x, y) {
+    const now = Date.now();
+    if (now - lastSpawnTime > 35) { // Batasi jeda kemunculan tiap 35 milidetik
+      createSparkle(x, y);
+      lastSpawnTime = now;
+    }
+  }
+
+  // 1. Deteksi Gerakan Mouse di Laptop/Desktop
+  window.addEventListener("mousemove", (e) => {
+    handleSpawn(e.clientX, e.clientY);
+  });
+
+  // 2. Deteksi Usapan Jari di Layar Sentuh HP/Tablet
+  window.addEventListener(
+    "touchmove",
+    (e) => {
+      if (e.touches && e.touches.length > 0) {
+        handleSpawn(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    },
+    { passive: true }
+  );
+})();
+
 // Inisialisasi AOS
 window.addEventListener("load", () => {
   if (typeof AOS !== "undefined") {
@@ -240,3 +297,16 @@ if (hamburgerBtn && navMenu) {
     });
   });
 }
+
+// Indikator Garis Scroll
+window.addEventListener("scroll", () => {
+  const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  
+  const progressBar = document.getElementById("scrollProgress");
+  if (progressBar) {
+    progressBar.style.width = scrolled + "%";
+  }
+});
+
