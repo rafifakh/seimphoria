@@ -389,7 +389,7 @@ body {
   100% { opacity: 0; transform: translate(-50%, calc(-50% - 25px)) scale(0.2) rotate(45deg); }
 }
 
-/* ================= RESPONSIF ================= */
+/* ================= PERBAIKAN RESPONSIF TABLET & HP ================= */
 @media (max-width: 992px) {
   .group-tabs {
     grid-template-columns: repeat(3, 1fr);
@@ -397,32 +397,101 @@ body {
 }
 
 @media (max-width: 768px) {
+  .history-hero {
+    padding: 36px 0 24px;
+  }
+
+  .history-title {
+    font-size: 24px;
+    line-height: 1.25;
+  }
+
+  .history-subtitle {
+    font-size: 13.5px;
+  }
+
+  /* Ubah sinopsis & foto jadi atas-bawah */
   .article-meta-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
+    padding: 14px;
   }
 
   .article-figure img {
-    height: 185px;
+    height: 190px;
   }
 }
 
 @media (max-width: 600px) {
+  .container {
+    padding: 0 14px;
+  }
+
+  /* Tab kelompok 2 kolom yang rapi */
   .group-tabs {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
+    margin-bottom: 20px;
   }
-  
+
+  .tab-btn {
+    min-height: 74px;
+    padding: 10px 12px;
+    border-radius: 12px;
+  }
+
+  .tab-info strong {
+    font-size: 12.5px;
+  }
+
+  .tab-info small {
+    font-size: 10.5px;
+  }
+
+  /* Kecilkan padding panel agar ruang baca luas */
+  .report-panel {
+    padding: 16px 14px;
+    border-radius: 16px;
+  }
+
   .panel-header {
     flex-direction: column;
+    gap: 12px;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+  }
+
+  .panel-header h2 {
+    font-size: 17px;
+    line-height: 1.3;
+  }
+
+  .author-list {
+    font-size: 12px;
+    line-height: 1.4;
   }
 
   .download-btn {
     width: 100%;
     justify-content: center;
+    padding: 10px 14px;
+    font-size: 12.5px;
+    box-sizing: border-box;
   }
 
+  .article-synopsis p {
+    font-size: 13px;
+    text-align: left; /* Rata kiri jauh lebih rapi di layar HP sempit dibanding justify */
+  }
+
+  /* Bingkai iframe anti-meluber */
   .viewer-box {
-    height: 520px;
+    width: 100%;
+    max-width: 100%;
+    height: 75vh; /* Mengikuti 75% tinggi layar HP agar nyaman dibaca */
+    min-height: 480px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 10px;
   }
 }
