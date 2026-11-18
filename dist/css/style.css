@@ -2009,3 +2009,52 @@ footer {
 ::-webkit-scrollbar-thumb:hover {
   background: #f472b6;
 }
+
+/* Penanda Khusus Menu Lawatan Sejarah di Desktop */
+.navbar .menu li a.nav-highlight {
+  position: relative;
+  color: #fb923c !important;
+  font-weight: 700;
+}
+
+/* Titik Indikator Mini di Atas Teks (Efek Menarik) */
+.navbar .menu li a.nav-highlight::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  width: 6px;
+  height: 6px;
+  background-color: #f472b6;
+  border-radius: 50%;
+}
+
+.navbar .menu li a.nav-highlight:hover {
+  color: #ea580c !important;
+  transform: translateY(-1px);
+}
+
+/* Tampilan di HP (Mobile Menu) */
+@media (max-width: 991px) {
+  .navbar-box .menu li a.nav-highlight {
+    background: #fff7ed;
+    border-radius: 10px;
+    padding: 10px 16px !important;
+  }
+  
+  .navbar .menu li a.nav-highlight::after {
+    display: none;
+  }
+}
+
+/* Aktifkan smooth scroll secara global */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Beri jeda jarak atas setinggi navbar + margin aman (misal 80px) */
+section, 
+div[id], 
+header[id] {
+  scroll-margin-top: 85px; /* Sesuaikan dengan tinggi navbar SEIMPHORIA */
+}

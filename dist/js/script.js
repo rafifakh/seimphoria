@@ -1,3 +1,18 @@
+// Paksa browser selalu reset posisi scroll ke paling atas saat dimuat ulang
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('beforeunload', () => {
+  window.scrollTo(0, 0);
+});
+
+// Bersihkan hash anchor saat refresh jika tidak ingin tertahan di section tertentu
+if (window.location.hash) {
+  window.scrollTo(0, 0);
+  history.replaceState(null, '', window.location.pathname);
+}
+
 // Matikan pemulihan scroll otomatis bawaan browser & paksa ke atas
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
@@ -122,6 +137,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setupSmartSlider("akademikBox", "slidePrev", "slideNext");
   setupSmartSlider("achievementBox", "achievePrev", "achieveNext");
+});
+
+// Tangani navigasi halus saat pengunjung datang dari halaman sejarah.html membawa hash (#)
+window.addEventListener("load", () => {
+  const hash = window.location.hash;
+  if (hash) {
+    const targetElement = document.querySelector(hash);
+    if (targetElement) {
+      // Beri jeda sedikit agar layout rendering stabil
+      setTimeout(() => {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }, 150);
+    }
+  }
 });
 
 /* ================= PARTIKEL JEJAK BINTANG SEIMPHORIA ================= */

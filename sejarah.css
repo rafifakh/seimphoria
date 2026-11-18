@@ -1,0 +1,428 @@
+/* ================= TEMA: AMUSEMENT PARK PASTEL × SEJARAH ================= */
+:root {
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --bg-page: #fffdfa;
+  --bg-card: #ffffff;
+  --text-main: #27272a;
+  --text-muted: #71717a;
+  
+  --pastel-peach: #fed7aa;
+  --pastel-pink: #fbcfe8;
+  --pastel-yellow: #fde047;
+  --pastel-purple: #e9d5ff;
+  --accent-terracotta: #c2410c;
+  --border-subtle: #f4ede4;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ================= 1. SCROLL PROGRESS INDICATOR ================= */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: #fb923c;
+  z-index: 10000;
+  transition: width 0.1s ease-out;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ================= 2. HERO SECTION & BINTANG MELAYANG ================= */
+.history-hero {
+  position: relative;
+  padding: 55px 0 35px;
+  background: radial-gradient(circle at 50% 0%, #fff7ed 0%, var(--bg-page) 75%);
+  border-bottom: 2px dashed #fed7aa;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-star {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.star-pos-1 { top: 15%; left: 6%; font-size: 26px; color: #fbbf24; animation: floatStar 4s ease-in-out infinite; }
+.star-pos-2 { top: 25%; right: 8%; font-size: 22px; color: #f472b6; animation: floatStar 3.5s ease-in-out infinite 0.8s; }
+.star-pos-3 { bottom: 15%; left: 10%; font-size: 18px; color: #c084fc; animation: floatStar 4.2s ease-in-out infinite 1.5s; }
+.star-pos-4 { bottom: 20%; right: 12%; font-size: 24px; color: #fb923c; animation: floatStar 3.8s ease-in-out infinite 0.3s; }
+
+@keyframes floatStar {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(0.95); opacity: 0.45; }
+  50% { transform: translateY(-10px) rotate(15deg) scale(1.15); opacity: 0.9; }
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+  text-decoration: none;
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 1.5px solid var(--pastel-peach);
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(251, 146, 60, 0.08);
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+}
+
+.back-link:hover {
+  border-color: #fb923c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(251, 146, 60, 0.15);
+}
+
+.ticket-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fffbeb;
+  border: 1px dashed #f59e0b;
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-terracotta);
+  margin-bottom: 16px;
+}
+
+.ticket-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f59e0b;
+}
+
+.history-title {
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  margin: 0 0 12px;
+}
+
+.history-subtitle {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ================= 3. TAB BERGAYA KUPON/TIKET WAHANA ================= */
+.history-content {
+  padding: 36px 0 60px;
+}
+
+.group-tabs {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.tab-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 90px;
+  padding: 14px;
+  background: #ffffff;
+  border: 2px solid var(--border-subtle);
+  border-radius: 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+.tab-btn:hover {
+  border-color: var(--pastel-peach);
+  transform: translateY(-3px);
+  background: #fffaf5;
+}
+
+.tab-btn.active {
+  background: #ffffff;
+  border-color: #fb923c;
+  box-shadow: 0 4px 0 #fed7aa;
+  transform: translateY(-3px);
+}
+
+.tab-num {
+  font-size: 13px;
+  font-weight: 800;
+  font-family: monospace;
+  color: #cbd5e1;
+}
+
+.tab-btn.active .tab-num {
+  color: #ea580c;
+}
+
+.tab-info strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.tab-info small {
+  display: block;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ================= 4. PANEL ARTIKEL HYBRID ================= */
+.report-panel {
+  display: none;
+  background: #ffffff;
+  border: 2px solid #fed7aa;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 4px 0 #fed7aa;
+}
+
+.report-panel.active {
+  display: block;
+  animation: panelPop 0.35s ease-out;
+}
+
+@keyframes panelPop {
+  0% { opacity: 0; transform: translateY(10px) scale(0.99); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+  border-bottom: 1.5px dashed var(--pastel-peach);
+}
+
+.topic-chip {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #7c2d12;
+  background: #ffedd5;
+  border: 1px solid #fed7aa;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.panel-header h2 {
+  font-size: 21px;
+  font-weight: 800;
+  margin: 0 0 6px;
+  color: var(--text-main);
+}
+
+.author-list {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffedd5; border: 1.5px solid #fb923c;
+  color: #1e1b4b;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(251, 146, 60, 0.15);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #f472b6, #fb923c);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(244, 114, 182, 0.25);
+}
+
+/* Grid Sinopsis & Foto Dokumentasi */
+.article-meta-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 24px;
+  align-items: center;
+  background: #fffcf8;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.article-synopsis h3 {
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-terracotta);
+  margin: 0 0 8px;
+}
+
+.article-synopsis p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-main);
+  margin: 0;
+  text-align: justify;
+}
+
+.article-figure {
+  margin: 0;
+  background: #ffffff;
+  border: 1.5px solid var(--pastel-peach);
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.article-figure img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+.article-figure figcaption {
+  font-size: 11.5px;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-top: 7px;
+  text-align: center;
+  line-height: 1.35;
+}
+
+/* Garis Pemisah ke Naskah Utuh */
+.full-doc-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 24px 0 18px;
+}
+
+.full-doc-divider::before,
+.full-doc-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1.5px dashed var(--pastel-peach);
+}
+
+.full-doc-divider span {
+  padding: 0 14px;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-terracotta);
+}
+
+/* Bingkai Iframe */
+.viewer-box {
+  width: 100%;
+  height: 700px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fbfbfb;
+  border: 1.5px solid #f1f5f9;
+}
+
+.viewer-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ================= 5. PARTIKEL JEJAK BINTANG ================= */
+.trail-star {
+  position: fixed !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  z-index: 999999 !important;
+  line-height: 1;
+  font-family: Arial, sans-serif;
+  transform: translate(-50%, -50%);
+  animation: starFadeOut 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes starFadeOut {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+  100% { opacity: 0; transform: translate(-50%, calc(-50% - 25px)) scale(0.2) rotate(45deg); }
+}
+
+/* ================= RESPONSIF ================= */
+@media (max-width: 992px) {
+  .group-tabs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .article-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .article-figure img {
+    height: 185px;
+  }
+}
+
+@media (max-width: 600px) {
+  .group-tabs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .panel-header {
+    flex-direction: column;
+  }
+
+  .download-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .viewer-box {
+    height: 520px;
+  }
+}
