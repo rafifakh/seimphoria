@@ -23,6 +23,16 @@ body {
   overflow-x: hidden;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden !important;
+  position: relative;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* ================= 1. SCROLL PROGRESS INDICATOR ================= */
 .scroll-progress-bar {
   position: fixed;
@@ -490,7 +500,6 @@ body {
     max-width: 100%;
     height: 75vh; /* Mengikuti 75% tinggi layar HP agar nyaman dibaca */
     min-height: 480px;
-    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     border-radius: 10px;
   }
