@@ -278,30 +278,6 @@ html, body {
   margin: 0;
 }
 
-.download-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #ffedd5; border: 1.5px solid #fb923c;
-  color: #1e1b4b;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 10px 18px;
-  border-radius: 10px;
-  border: 1px solid #ffffff;
-  box-shadow: 0 4px 12px rgba(251, 146, 60, 0.15);
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.download-btn:hover {
-  background: linear-gradient(135deg, #f472b6, #fb923c);
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(244, 114, 182, 0.25);
-}
-
 /* Grid Sinopsis & Foto Dokumentasi */
 .article-meta-grid {
   display: grid;
@@ -496,14 +472,6 @@ html, body {
   .author-list {
     font-size: 12px;
     line-height: 1.4;
-  }
-
-  .download-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 10px 14px;
-    font-size: 12.5px;
-    box-sizing: border-box;
   }
 
   .article-synopsis p {
